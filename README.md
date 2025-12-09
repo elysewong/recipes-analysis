@@ -18,100 +18,100 @@ I approached data cleaning as follows:
 6. I then utilize the protein_calorie_ratio column to create a binary column indicating whether a recipe is suitable for a healthy fitness diet where the threshold is 10% (1 gram of protein for every 10 calories). This will be useful for our hypotheses testing later.
 The resulting dataframe is as follows:
 <div style="overflow-x: auto;">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+  <div>
+  <style scoped>
+      .dataframe tbody tr th:only-of-type {
+          vertical-align: middle;
+      }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+      .dataframe tbody tr th {
+          vertical-align: top;
+      }
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>name</th>
-      <th>id</th>
-      <th>minutes</th>
-      <th>contributor_id</th>
-      <th>...</th>
-      <th>carbohydrates_pdv</th>
-      <th>protein_grams</th>
-      <th>protein_calorie_ratio</th>
-      <th>is_cutting_diet</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>brownies in the world best ever</td>
-      <td>333281</td>
-      <td>40</td>
-      <td>985201</td>
-      <td>...</td>
-      <td>6.0</td>
-      <td>1.5</td>
-      <td>0.01</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>in canada chocolate chip cookies</td>
-      <td>453467</td>
-      <td>45</td>
-      <td>1848091</td>
-      <td>...</td>
-      <td>26.0</td>
-      <td>6.5</td>
-      <td>0.01</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>broccoli casserole</td>
-      <td>306168</td>
-      <td>40</td>
-      <td>50969</td>
-      <td>...</td>
-      <td>3.0</td>
-      <td>11.0</td>
-      <td>0.06</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>pound cake</td>
-      <td>286009</td>
-      <td>120</td>
-      <td>461724</td>
-      <td>...</td>
-      <td>39.0</td>
-      <td>10.0</td>
-      <td>0.01</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>meatloaf</td>
-      <td>475785</td>
-      <td>90</td>
-      <td>2202916</td>
-      <td>...</td>
-      <td>2.0</td>
-      <td>14.5</td>
-      <td>0.05</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 22 columns</p>
-</div>
+      .dataframe thead th {
+          text-align: right;
+      }
+  </style>
+  <table border="1" class="dataframe">
+    <thead>
+      <tr style="text-align: right;">
+        <th></th>
+        <th>name</th>
+        <th>id</th>
+        <th>minutes</th>
+        <th>contributor_id</th>
+        <th>...</th>
+        <th>carbohydrates_pdv</th>
+        <th>protein_grams</th>
+        <th>protein_calorie_ratio</th>
+        <th>is_cutting_diet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>0</th>
+        <td>brownies in the world best ever</td>
+        <td>333281</td>
+        <td>40</td>
+        <td>985201</td>
+        <td>...</td>
+        <td>6.0</td>
+        <td>1.5</td>
+        <td>0.01</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <th>1</th>
+        <td>in canada chocolate chip cookies</td>
+        <td>453467</td>
+        <td>45</td>
+        <td>1848091</td>
+        <td>...</td>
+        <td>26.0</td>
+        <td>6.5</td>
+        <td>0.01</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <th>2</th>
+        <td>broccoli casserole</td>
+        <td>306168</td>
+        <td>40</td>
+        <td>50969</td>
+        <td>...</td>
+        <td>3.0</td>
+        <td>11.0</td>
+        <td>0.06</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <th>3</th>
+        <td>pound cake</td>
+        <td>286009</td>
+        <td>120</td>
+        <td>461724</td>
+        <td>...</td>
+        <td>39.0</td>
+        <td>10.0</td>
+        <td>0.01</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <th>4</th>
+        <td>meatloaf</td>
+        <td>475785</td>
+        <td>90</td>
+        <td>2202916</td>
+        <td>...</td>
+        <td>2.0</td>
+        <td>14.5</td>
+        <td>0.05</td>
+        <td>0</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>5 rows × 22 columns</p>
+  </div>
 <div>
 
 ### Univariate Analysis
