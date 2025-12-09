@@ -143,7 +143,7 @@ Here we look at the statistics of pairs of columns to identify possible associat
   height="450"
   frameborder="0"
 ></iframe> 
-The plot shows recipes labeled as suitable for a cutting diet tend to receive the same higher average ratings. The distributions overlap heavily, though, there is a slightly lower bottom whisker for cutting diet recipes.This isn't a dramatic difference, and may also be due to the small size of the cutting diet recipe group. We will delve more into this later!
+The plot shows recipes labeled as suitable for a cutting diet tend to receive the same higher average ratings. The distributions overlap heavily, though, there is a slightly lower bottom whisker for cutting diet recipes.This isn't a dramatic difference, and may also be due to the small size of the cutting diet recipe group.
 
 <iframe
   src="assets/bivariate_1.html"
@@ -153,3 +153,124 @@ The plot shows recipes labeled as suitable for a cutting diet tend to receive th
 ></iframe> 
 The plot shows most recipes cluster at low protein and low calorie values, showing that typical dishes don’t pack large amounts of protein. A few extreme outliers with unusually high protein and calorie numbers stretch the scale, indicating either very large recipes or noisy nutrition data.
 
+<style type="text/css">
+#T_00bda caption {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+#T_00bda_row0_col0, #T_00bda_row1_col0 {
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+</style>
+<table id="T_00bda">
+  <caption>Average Rating by Cutting Diet</caption>
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_00bda_level0_col0" class="col_heading level0 col0" >avg_rating</th>
+    </tr>
+    <tr>
+      <th class="index_name level0" >is_cutting_diet</th>
+      <th class="blank col0" >&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_00bda_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_00bda_row0_col0" class="data row0 col0" >4.63</td>
+    </tr>
+    <tr>
+      <th id="T_00bda_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_00bda_row1_col0" class="data row1 col0" >4.61</td>
+    </tr>
+  </tbody>
+</table>
+This grouped table summarizes the average rating for cutting-diet and non–cutting-diet recipes, showing that both categories receive nearly identical ratings (4.67 vs. 4.68). This suggests that healthier, high-protein recipes are not inherently rated higher or lower by users, despite being nutritionally distinct.
+
+<style type="text/css">
+#T_16e04 caption {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+#T_16e04_row0_col0, #T_16e04_row0_col1, #T_16e04_row0_col2, #T_16e04_row0_col3, #T_16e04_row0_col4, #T_16e04_row1_col0, #T_16e04_row1_col1, #T_16e04_row1_col2, #T_16e04_row1_col3, #T_16e04_row1_col4, #T_16e04_row2_col0, #T_16e04_row2_col1, #T_16e04_row2_col2, #T_16e04_row2_col3, #T_16e04_row2_col4, #T_16e04_row3_col0, #T_16e04_row3_col1, #T_16e04_row3_col2, #T_16e04_row3_col3, #T_16e04_row3_col4, #T_16e04_row4_col0, #T_16e04_row4_col1, #T_16e04_row4_col2, #T_16e04_row4_col3, #T_16e04_row4_col4, #T_16e04_row5_col0, #T_16e04_row5_col1, #T_16e04_row5_col2, #T_16e04_row5_col3, #T_16e04_row5_col4 {
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+</style>
+<table id="T_16e04">
+  <caption>Average Rating by Calorie Bins and Ingredient Count Bins</caption>
+  <thead>
+    <tr>
+      <th class="index_name level0" >ingredient_bin</th>
+      <th id="T_16e04_level0_col0" class="col_heading level0 col0" >1–5</th>
+      <th id="T_16e04_level0_col1" class="col_heading level0 col1" >6–10</th>
+      <th id="T_16e04_level0_col2" class="col_heading level0 col2" >11–15</th>
+      <th id="T_16e04_level0_col3" class="col_heading level0 col3" >16–20</th>
+      <th id="T_16e04_level0_col4" class="col_heading level0 col4" >21+</th>
+    </tr>
+    <tr>
+      <th class="index_name level0" >calorie_bin</th>
+      <th class="blank col0" >&nbsp;</th>
+      <th class="blank col1" >&nbsp;</th>
+      <th class="blank col2" >&nbsp;</th>
+      <th class="blank col3" >&nbsp;</th>
+      <th class="blank col4" >&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_16e04_level0_row0" class="row_heading level0 row0" >0–250</th>
+      <td id="T_16e04_row0_col0" class="data row0 col0" >4.67</td>
+      <td id="T_16e04_row0_col1" class="data row0 col1" >4.62</td>
+      <td id="T_16e04_row0_col2" class="data row0 col2" >4.62</td>
+      <td id="T_16e04_row0_col3" class="data row0 col3" >4.59</td>
+      <td id="T_16e04_row0_col4" class="data row0 col4" >4.73</td>
+    </tr>
+    <tr>
+      <th id="T_16e04_level0_row1" class="row_heading level0 row1" >250–500</th>
+      <td id="T_16e04_row1_col0" class="data row1 col0" >4.62</td>
+      <td id="T_16e04_row1_col1" class="data row1 col1" >4.61</td>
+      <td id="T_16e04_row1_col2" class="data row1 col2" >4.62</td>
+      <td id="T_16e04_row1_col3" class="data row1 col3" >4.64</td>
+      <td id="T_16e04_row1_col4" class="data row1 col4" >4.70</td>
+    </tr>
+    <tr>
+      <th id="T_16e04_level0_row2" class="row_heading level0 row2" >500–750</th>
+      <td id="T_16e04_row2_col0" class="data row2 col0" >4.65</td>
+      <td id="T_16e04_row2_col1" class="data row2 col1" >4.61</td>
+      <td id="T_16e04_row2_col2" class="data row2 col2" >4.62</td>
+      <td id="T_16e04_row2_col3" class="data row2 col3" >4.65</td>
+      <td id="T_16e04_row2_col4" class="data row2 col4" >4.75</td>
+    </tr>
+    <tr>
+      <th id="T_16e04_level0_row3" class="row_heading level0 row3" >750–1000</th>
+      <td id="T_16e04_row3_col0" class="data row3 col0" >4.58</td>
+      <td id="T_16e04_row3_col1" class="data row3 col1" >4.62</td>
+      <td id="T_16e04_row3_col2" class="data row3 col2" >4.64</td>
+      <td id="T_16e04_row3_col3" class="data row3 col3" >4.66</td>
+      <td id="T_16e04_row3_col4" class="data row3 col4" >4.72</td>
+    </tr>
+    <tr>
+      <th id="T_16e04_level0_row4" class="row_heading level0 row4" >1000–1500</th>
+      <td id="T_16e04_row4_col0" class="data row4 col0" >4.61</td>
+      <td id="T_16e04_row4_col1" class="data row4 col1" >4.62</td>
+      <td id="T_16e04_row4_col2" class="data row4 col2" >4.59</td>
+      <td id="T_16e04_row4_col3" class="data row4 col3" >4.66</td>
+      <td id="T_16e04_row4_col4" class="data row4 col4" >4.57</td>
+    </tr>
+    <tr>
+      <th id="T_16e04_level0_row5" class="row_heading level0 row5" >1500–3000</th>
+      <td id="T_16e04_row5_col0" class="data row5 col0" >4.62</td>
+      <td id="T_16e04_row5_col1" class="data row5 col1" >4.62</td>
+      <td id="T_16e04_row5_col2" class="data row5 col2" >4.64</td>
+      <td id="T_16e04_row5_col3" class="data row5 col3" >4.66</td>
+      <td id="T_16e04_row5_col4" class="data row5 col4" >4.66</td>
+    </tr>
+  </tbody>
+</table>
+This pivot table summarizes how recipe ratings vary with calorie range and number of ingredients. We see a clear pattern: simpler, lower-calorie recipes tend to receive higher ratings, while more complex or calorie-dense dishes show slightly lower average ratings. 
