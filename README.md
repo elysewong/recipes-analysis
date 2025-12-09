@@ -117,34 +117,38 @@ The resulting dataframe is as follows:
 ### Univariate Analysis
 Here we look at the distributions of relevant columns separately by using DataFrame operations and drawing some relevant plots.
 
+The following plot shows how most recipes cluster at very low protein-to-calorie ratios, with the distribution dropping off quickly as the ratio increases. Only a small fraction of recipes reach ratios above 0.1, showing that high-protein, low-calorie options are relatively rare in this dataset.
 <iframe
   src="assets/univariate_2.html"
   width="800"
   height="600"
   frameborder="0"
-></iframe> This plot shows how most recipes cluster at very low protein-to-calorie ratios, with the distribution dropping off quickly as the ratio increases. Only a small fraction of recipes reach ratios above 0.1, showing that high-protein, low-calorie options are relatively rare in this dataset.
+></iframe> 
 
+The following plot shows that most recipes do not meet the protein-to-calorie threshold for a cutting diet, with more than 79,000 falling into the “Not Cutting” category. Only about 4,500 recipes qualify, showing that high-protein, lower-calorie options make up a very small share of the dataset.
 <iframe
   src="assets/univariate_1.html"
   width="800"
   height="600"
   frameborder="0"
-></iframe> This plot shows that most recipes do not meet the protein-to-calorie threshold for a cutting diet, with more than 79,000 falling into the “Not Cutting” category. Only about 4,500 recipes qualify, showing that high-protein, lower-calorie options make up a very small share of the dataset.
+></iframe> 
 
 ### Bivariate Analysis
 Here we look at the statistics of pairs of columns to identify possible associations.
 
+The following plot shows recipes labeled as suitable for a cutting diet tend to receive the same higher average ratings. The distributions overlap heavily, though, there is a slightly lower bottom whisker for cutting diet recipes.This isn't a dramatic difference, and may also be due to the small size of the cutting diet recipe group. We will delve more into this later!
 <iframe
   src="assets/bivariate_2.html"
   width="800"
   height="600"
   frameborder="0"
-></iframe> This plot shows recipes labeled as suitable for a cutting diet tend to receive the same higher average ratings. The distributions overlap heavily, though, there is a slightly lower bottom whisker for cutting diet recipes.This isn't a dramatic difference, and may also be due to the small size of the cutting diet recipe group. We will delve more into this later!
+></iframe> 
 
+The following plot shows most recipes cluster at low protein and low calorie values, showing that typical dishes don’t pack large amounts of protein. A few extreme outliers with unusually high protein and calorie numbers stretch the scale, indicating either very large recipes or noisy nutrition data.
 <iframe
   src="assets/bivariate_1.html"
   width="800"
   height="600"
   frameborder="0"
-></iframe> This plot shows most recipes cluster at low protein and low calorie values, showing that typical dishes don’t pack large amounts of protein. A few extreme outliers with unusually high protein and calorie numbers stretch the scale, indicating either very large recipes or noisy nutrition data.
+></iframe> 
 
