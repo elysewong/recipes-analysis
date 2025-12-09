@@ -293,7 +293,14 @@ A column that the missingness of the 'avg_rating' column does depend on may be t
   height="450"
   frameborder="0"
 ></iframe> 
-To investigate this, we ran a permutation test to investigate whether the missingness of the 'avg_rating' column depends on the 'submitted' year of the recipes. The null hypothesis stated that there is no relationship between the year a recipe was submitted and whether its average rating is missing. We calculated the observed difference in mean submission year between recipes with missing and non-missing avg_rating values. The observed difference in mean submission year between missing and non-missing recipes was ~0.73, indicating that recipes without ratings tend to be substantially newer. When we permuted the missingness indicator 10,000 times, none of the simulated mean differences were as extreme as the observed one, yielding a p-value of approximately 0. This provides strong evidence that missingness in avg_rating depends on submission year.
+To investigate this, we ran a permutation test to investigate whether the missingness of the 'avg_rating' column depends on the 'submitted' year of the recipes. The null hypothesis stated that there is no relationship between the year a recipe was submitted and whether its average rating is missing. We calculated the observed difference in mean submission year between recipes with missing and non-missing avg_rating values. 
+<iframe
+  src="assets/nmar_1.html"
+  width="800"
+  height="450"
+  frameborder="0"
+></iframe> 
+The observed difference in mean submission year between missing and non-missing recipes was ~0.73, indicating that recipes without ratings tend to be substantially newer. When we permuted the missingness indicator 10,000 times, none of the simulated mean differences were as extreme as the observed one, yielding a p-value of approximately 0. This provides strong evidence that missingness in avg_rating depends on submission year.
 
 
 ## **Hypothesis Testing**
