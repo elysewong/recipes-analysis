@@ -300,7 +300,17 @@ To investigate this, we ran a permutation test to investigate whether the missin
   height="450"
   frameborder="0"
 ></iframe> 
-The observed difference in mean submission year between missing and non-missing recipes was ~0.73, indicating that recipes without ratings tend to be substantially newer. When we permuted the missingness indicator 10,000 times, none of the simulated mean differences were as extreme as the observed one, yielding a p-value of approximately 0. This provides strong evidence that missingness in avg_rating depends on submission year.
+The observed difference in mean submission year between missing and non-missing recipes was ~0.73, indicating that recipes without ratings tend to be substantially newer. When we permuted the missingness indicator 10,000 times, none of the simulated mean differences were as extreme as the observed one, yielding a p-value of approximately 0. Since the p-value (~0) is less than 0.05, we reject the null hypothesis. This test provides statistical evidence that the missingness of avg_rating depends on the year the recipe was submitted.
+
+
+Next, we can examine whether the missingness of the 'avg_rating' column depends on the number of ingredients in a recipe. We suspect the missingness of the avg_rating column does not depend on the number of ingredients, but we will still investigate!
+<iframe
+  src="assets/nmar_permutation_3.html"
+  width="800"
+  height="450"
+  frameborder="0"
+></iframe> 
+The normalized histograms above illustrate the distribution of the number of ingredients in recipes with and without missing average ratings. The shapes of the two distributions appear quite similar, suggesting that the number of ingredients does not significantly influence whether a recipe has a missing average rating. However, we can perform a permutation test to formally assess this.
 
 
 ## **Hypothesis Testing**
@@ -313,10 +323,10 @@ The observed difference in mean submission year between missing and non-missing 
 This is a good choice because our research question is specifically about whether one group tends to be rated lower on average, and ratings are numerical, so comparing group means is very interpretable.
 
 
-I chose the standard **significance level** of 0.05 to define statistical significance.
-Since the **p-value (0.0480)** is less than 0.05, we **reject the null hypothesis**.
+I chose the standard significance level of 0.05 to define statistical significance.
+Since the p-value (0.0480) is less than 0.05, we reject the null hypothesis.
 In these trials, we find that healthy-fitness-diet recipes have a lower average rating than other recipes.
 
 
-I used a **significance level** of **𝛼 = 0.05**, which is a very standard threshold in statistical analysis. The observed p-value from the permutation test was 0.0480. Since 
-**𝑝 = 0.0480** < 0.05, we **reject the null hypothesis** and conclude that, in this sample, healthy-fitness-diet recipes tend to have a lower average rating than other recipes. While the difference in means is small in magnitude, this test provides statistical evidence that these recipes are not rated as highly on average.
+I used a significance level of 𝛼 = 0.05, which is a very standard threshold in statistical analysis. The observed p-value from the permutation test was 0.0480. Since 
+𝑝 = 0.0480 < 0.05, we reject the null hypothesis and conclude that, in this sample, healthy-fitness-diet recipes tend to have a lower average rating than other recipes. While the difference in means is small in magnitude, this test provides statistical evidence that these recipes are not rated as highly on average.
