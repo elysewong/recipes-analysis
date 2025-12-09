@@ -283,7 +283,7 @@ The 'name' and 'description' columns have missing values likely because some rec
 
 Another possibility is that the 'description' column is missing by design. Many recipe platforms have an optional description field and therefore, the missing descriptions occur because the dataset itself allows an empty description and users decide not to input. This is a classic example of missing by design!
 
-Based on the data-generating process, the **column most likely to be NMAR** (Not Missing At Random) is the **avg_rating** column. A recipe is missing an average rating only when no users rated it, and that missingness is likely caused by properties of the recipe itself (perhaps very niche recipes, or extremely new recipes). Because the reason a recipe has no ratings may be directly tied to its true (unobserved) rating, the missingness depends on the missing value itself, which is also characteristic of NMAR. 
+Based on the data-generating process, the column most likely to be NMAR (Not Missing At Random) is the avg_rating column. A recipe is missing an average rating only when no users rated it, and that missingness is likely caused by properties of the recipe itself (perhaps very niche recipes, or extremely new recipes). Because the reason a recipe has no ratings may be directly tied to its true (unobserved) rating, the missingness depends on the missing value itself, which is also characteristic of NMAR. 
 
 ### Missingness Dependency
 A column that the missingness of the 'avg_rating' column does depend on may be the 'submitted' column. The intuition is that newer recipes haven’t had as much time to receive ratings so missing avg_rating should be more common for recent submissions. 
@@ -305,12 +305,18 @@ The observed difference in mean submission year between missing and non-missing 
 
 ## **Hypothesis Testing**
 **Null Hypothesis**: Healthy-fitness-diet recipes have the same or higher average rating than other recipes.
+
 **Alternative Hypothesis**: Healthy-fitness-diet recipes have a lower average rating than other recipes.
+
+
 **Test Statistic**: Difference of means (sample mean rating of healthy recipes - sample mean rating of other recipes) 
 This is a good choice because our research question is specifically about whether one group tends to be rated lower on average, and ratings are numerical, so comparing group means is very interpretable.
+
+
 I chose the standard **significance level** of 0.05 to define statistical significance.
 Since the **p-value (0.0480)** is less than 0.05, we **reject the null hypothesis**.
 In these trials, we find that healthy-fitness-diet recipes have a lower average rating than other recipes.
+
 
 I used a **significance level** of **𝛼 = 0.05**, which is a very standard threshold in statistical analysis. The observed p-value from the permutation test was 0.0480. Since 
 **𝑝 = 0.0480** < 0.05, we **reject the null hypothesis** and conclude that, in this sample, healthy-fitness-diet recipes tend to have a lower average rating than other recipes. While the difference in means is small in magnitude, this test provides statistical evidence that these recipes are not rated as highly on average.
