@@ -12,10 +12,11 @@ Readers should care about this dataset and question because many individuals are
 I approached data cleaning as follows:
 1. Using df.info(), I took note of columns that include null values ('name', 'description', 'avg_rating'). Within the name column, I noticed there were quite a few empty strings, I replaced these with NaN values. We will keep the null values in the name and description column for now, until we work on our analyses. We also take note of the missing values in the average rating column, that we will work on to later fill in the next step: Assessment of Missingness. 
 2. In the name column, I removed the leading number from the 'name' column, for cleanliness and readability when using this for later analysis.
-3. Since our central question focuses on the nutritional content of the recipes, I split the nutrition column into separate nutritional components, dropping the nutrition column to reduce redundancy. We can later use this for analyses.
-4. I then created a new column, protein_grams, estimating grams of protein from the %DV (daily value) by dividing the %DV by 2 to get an approximate amount of usable protein in grams. I utilized grams instead of the default pdv as it's more intuitive to the day-to-day customer.
-5. Using the protein_grams column from the previous step, I created a protein to calorie ratio column, protein_calorie_ratio. This will act as the determining factor for whether a recipe is suitable for a healthy fitness diet. We replace NaN values with 0 for recipes with 0 calories as th is makes the most sense.
-6. I then utilize the protein_calorie_ratio column to create a binary column indicating whether a recipe is suitable for a healthy fitness diet where the threshold is 10% (1 gram of protein for every 10 calories). This will be useful for our hypotheses testing later.
+3. In the submitted column, I converted the string values to datetime format for later analysis.
+4. Since our central question focuses on the nutritional content of the recipes, I split the nutrition column into separate nutritional components, dropping the nutrition column to reduce redundancy. We can later use this for analyses.
+5. I then created a new column, protein_grams, estimating grams of protein from the %DV (daily value) by dividing the %DV by 2 to get an approximate amount of usable protein in grams. I utilized grams instead of the default pdv as it's more intuitive to the day-to-day customer.
+6. Using the protein_grams column from the previous step, I created a protein to calorie ratio column, protein_calorie_ratio. This will act as the determining factor for whether a recipe is suitable for a healthy fitness diet. We replace NaN values with 0 for recipes with 0 calories as th is makes the most sense.
+7. I then utilize the protein_calorie_ratio column to create a binary column indicating whether a recipe is suitable for a healthy fitness diet where the threshold is 10% (1 gram of protein for every 10 calories). This will be useful for our hypotheses testing later.
 The resulting dataframe is as follows:
 <div style="overflow-x: auto;">
   <div>
@@ -274,3 +275,35 @@ This grouped table summarizes the average rating for cutting-diet and non–cutt
   </tbody>
 </table>
 This pivot table summarizes how recipe ratings vary with calorie range and number of ingredients. We see a clear pattern: simpler, lower-calorie recipes tend to receive higher ratings, while more complex or calorie-dense dishes show slightly lower average ratings. 
+
+## **Assessment of Missingness**
+In our recipes dataset, we find only three columns with missing entries: 'name', 'description', and 'avg_rating'. 
+
+The 'name' and 'description' columns have missing values likely because some recipes may not have been provided with a name or description when they were added to the dataset. For example, user-generated content may sometimes be incomplete, such as when users submit recipes without filling out all the details. It's quite likely that a user forgot to include a description when submitting a recipe. These columns appear to be missing because some contributors did not fill them out, or because of inconsistencies in how recipes were submitted or stored in the database. In other words, the probability that name or description is missing depends on who submitted the recipe, the format of the upload, or other observed variables, not on the missing text itself. 
+
+Another possibility is that the 'description' column is missing by design. Many recipe platforms have an optional description field and therefore, the missing descriptions occur because the dataset itself allows an empty description and users decide not to input. This is a classic example of missing by design!
+
+Based on the data-generating process, the **column most likely to be NMAR** (Not Missing At Random) is the **avg_rating** column. A recipe is missing an average rating only when no users rated it, and that missingness is likely caused by properties of the recipe itself (perhaps very niche recipes, or extremely new recipes). Because the reason a recipe has no ratings may be directly tied to its true (unobserved) rating, the missingness depends on the missing value itself, which is also characteristic of NMAR. 
+
+### Missingness Dependency
+A column that the missingness of the 'avg_rating' column does depend on may be the 'submitted' column. The intuition is that newer recipes haven’t had as much time to receive ratings so missing avg_rating should be more common for recent submissions. 
+<iframe
+  src="assets/nmar_permutation_2.html"
+  width="800"
+  height="450"
+  frameborder="0"
+></iframe> 
+To investigate this, we ran a permutation test to investigate whether the missingness of the 'avg_rating' column depends on the 'submitted' year of the recipes. The null hypothesis stated that there is no relationship between the year a recipe was submitted and whether its average rating is missing. We calculated the observed difference in mean submission year between recipes with missing and non-missing avg_rating values. The observed difference in mean submission year between missing and non-missing recipes was ~0.73, indicating that recipes without ratings tend to be substantially newer. When we permuted the missingness indicator 10,000 times, none of the simulated mean differences were as extreme as the observed one, yielding a p-value of approximately 0. This provides strong evidence that missingness in avg_rating depends on submission year.
+
+
+## **Hypothesis Testing**
+**Null Hypothesis**: Healthy-fitness-diet recipes have the same or higher average rating than other recipes.
+**Alternative Hypothesis**: Healthy-fitness-diet recipes have a lower average rating than other recipes.
+**Test Statistic**: Difference of means (sample mean rating of healthy recipes - sample mean rating of other recipes) 
+This is a good choice because our research question is specifically about whether one group tends to be rated lower on average, and ratings are numerical, so comparing group means is very interpretable.
+I chose the standard **significance level** of 0.05 to define statistical significance.
+Since the **p-value (0.0480)** is less than 0.05, we **reject the null hypothesis**.
+In these trials, we find that healthy-fitness-diet recipes have a lower average rating than other recipes.
+
+I used a **significance level** of **𝛼 = 0.05**, which is a very standard threshold in statistical analysis. The observed p-value from the permutation test was 0.0480. Since 
+**𝑝 = 0.0480** < 0.05, we **reject the null hypothesis** and conclude that, in this sample, healthy-fitness-diet recipes tend to have a lower average rating than other recipes. While the difference in means is small in magnitude, this test provides statistical evidence that these recipes are not rated as highly on average.
