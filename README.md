@@ -8,6 +8,7 @@ My dataset explores a collection of recipes along with user interactions and rat
 Readers should care about this dataset and question because many individuals are interested in maintaining a healthy diet while achieving specific fitness goals. Understanding which recipes are effective for a cutting diet can help readers make informed dietary choices that align with their health and fitness objectives. This dataset contains 234429 entries (rows). The relevant columns to my question include: nutrition and name. These columns provide insights into the nutritional content (calories, protein, carbs, fats) and the names of the recipes, which are crucial for identifying suitable options for a cutting diet.
 
 ## **Data Cleaning and Exploratory Data Analysis**
+### Data Cleaning
 I approached data cleaning as follows:
 1. Using df.info(), I took note of columns that include null values ('name', 'description', 'avg_rating'). We will keep the null values in the name and description column for now, until we work on our analyses. We also take note of the missing values in the average rating column, that we will work on to later fill in the next step: Assessment of Missingness. 
 2. In the name column, I removed the leading number from the 'name' column, for cleanliness and readability when using this for later analysis.
@@ -110,3 +111,12 @@ The resulting dataframe is as follows:
 </table>
 <p>5 rows × 23 columns</p>
 </div>
+
+### Univariate Analysis
+
+<iframe
+  src="assets/univariate_1.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
