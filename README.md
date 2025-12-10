@@ -12,7 +12,7 @@ Readers should care about this dataset and question because many individuals are
 I approached data cleaning as follows:
 1. Using df.info(), I took note of columns that include null values ('name', 'description', 'avg_rating'). Within the name column, I noticed there were quite a few empty strings, I replaced these with NaN values. We will keep the null values in the name and description column for now, until we work on our analyses. We also take note of the missing values in the average rating column, that we will work on to later fill in the next step: Assessment of Missingness. 
 2. In the name column, I removed the leading number from the 'name' column, for cleanliness and readability when using this for later analysis.
-3. In the submitted column, I converted the string values to datetime format for later analysis.
+3. In the submitted column, I converted the string values to datetime format for later analysis. I also created a year column based on this column's content.
 4. Since our central question focuses on the nutritional content of the recipes, I split the nutrition column into separate nutritional components, dropping the nutrition column to reduce redundancy. We can later use this for analyses.
 5. I then created a new column, protein_grams, estimating grams of protein from the %DV (daily value) by dividing the %DV by 2 to get an approximate amount of usable protein in grams. I utilized grams instead of the default pdv as it's more intuitive to the day-to-day customer.
 6. Using the protein_grams column from the previous step, I created a protein to calorie ratio column, protein_calorie_ratio. This will act as the determining factor for whether a recipe is suitable for a healthy fitness diet. We replace NaN values with 0 for recipes with 0 calories as th is makes the most sense.
@@ -302,7 +302,6 @@ To investigate this, we ran a permutation test to investigate whether the missin
 ></iframe> 
 The observed difference in mean submission year between missing and non-missing recipes was ~0.73, indicating that recipes without ratings tend to be substantially newer. When we permuted the missingness indicator 10,000 times, none of the simulated mean differences were as extreme as the observed one, yielding a p-value of approximately 0. Since the p-value (~0) is less than 0.05, we reject the null hypothesis. This test provides statistical evidence that the missingness of avg_rating depends on the year the recipe was submitted.
 
-
 Next, we can examine whether the missingness of the 'avg_rating' column depends on the number of ingredients in a recipe. We suspect the missingness of the avg_rating column does not depend on the number of ingredients, but we will still investigate!
 <iframe
   src="assets/nmar_permutation_3.html"
@@ -312,6 +311,14 @@ Next, we can examine whether the missingness of the 'avg_rating' column depends 
 ></iframe> 
 The normalized histograms above illustrate the distribution of the number of ingredients in recipes with and without missing average ratings. The shapes of the two distributions appear quite similar, suggesting that the number of ingredients does not significantly influence whether a recipe has a missing average rating. However, we can perform a permutation test to formally assess this.
 
+The null hypothesis is that there is no relationship between the number of ingredients in a recipe and whether its average rating is missing. The alternative hypothesis is that there is a relationship between the number of ingredients in a recipe and whether its average rating is missing. We binned n_ingredients into five categories and compared the distribution of ingredient bins among recipes with and without missing avg_rating using total variation distance (TVD) as the test statistic. I chose total variation distance (TVD) as the test statistic instead of a difference in means or medians because TVD compares the entire distribution of ingredient counts between recipes with missing and non-missing ratings. In contrast, the mean and median collapse the data into a single summary number, which can be problematic here because n_ingredients is discrete, skewed, and heavily concentrated around a few values. As a result, the median can only take on a small set of values (often 0 or 1 apart), and the mean becomes overly sensitive to the dataset’s size and long right tail.
+<iframe
+  src="assets/nmar_permutation_4.html"
+  width="800"
+  height="450"
+  frameborder="0"
+></iframe> 
+Since the p-value (0.1390) is greater than 0.05, we fail to reject the null hypothesis. We do not find sufficient evidence to suggest that the missingness of avg_rating depends on the number of ingredients in a recipe.
 
 ## **Hypothesis Testing**
 **Null Hypothesis**: Healthy-fitness-diet recipes have the same or higher average rating than other recipes.
