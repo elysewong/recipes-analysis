@@ -332,7 +332,7 @@ We do not impute missing values in the name, description, or avg_rating columns.
 This is a good choice because our research question is specifically about whether one group tends to be rated lower on average, and ratings are numerical, so comparing group means is very interpretable.
 
 <iframe
-  src="assets/hypothesis-test.html"
+  src="assets/hypothesis_test.html"
   width="800"
   height="450"
   frameborder="0"
@@ -349,3 +349,7 @@ To evaluate my model, I use Root Mean Squared Error (RMSE). RMSE is the most app
 I built a regression model to predict the number of steps (n_steps) in a recipe using only information that would be available at prediction time, such as nutritional values, ingredient count, and preparation time. My baseline model was a multiple linear regression with 11 quantitative features: minutes, n_ingredients, calories, total_fat_pdv, sugar_pdv, sodium_pdv, protein_pdv, saturated_fat_pdv, carbohydrates_pdv, protein_grams, and protein_calorie_ratio. All of these variables are quantitative and continuous and the dataset did not include any ordinal or nominal features in the baseline model, so no encoding was required. I standardized all numeric features using a StandardScaler inside a ColumnTransformer to better analyze the coefficients of the Linear Regression model.
 
 The model achieved an RMSE of approximately 5.7046 and an R² of 0.1974. This indicates that the model captures a moderate amount of variance (~20%) but cannot represent the nonlinear relationships between features and recipe complexity. While the model captures a meaningful amount of variance in step count, I would not consider it “good” yet, because recipe complexity often depends on nonlinear interactions. For example, high-calorie recipes with many ingredients tend to have more steps. A linear model is restricted to modeling straight-line relationships, so it struggles to capture these patterns. This sets the stage for an improved model, a Random Forest, that can account for nonlinear structure in the data.
+
+## Final Model
+
+## Fairness Analysis
