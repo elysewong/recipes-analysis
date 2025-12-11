@@ -320,6 +320,8 @@ The null hypothesis is that there is no relationship between the number of ingre
 ></iframe> 
 Since the p-value (0.1390) is greater than 0.05, we fail to reject the null hypothesis. We do not find sufficient evidence to suggest that the missingness of avg_rating depends on the number of ingredients in a recipe.
 
+We do not impute missing values in the name, description, or avg_rating columns. We do not fill in missing values for name or description because these fields are not relevant to our prediction task and there is no sensible way to impute them since these columns contain free-form string text. For the avg_rating column, which will later act as the response variable, filling in missing values would skew the logic behind supervised learning as our goal is to predict ratings. Any imputation of ratings would bias the training process.
+
 ## **Hypothesis Testing**
 **Null Hypothesis**: Healthy-fitness-diet recipes have the same or higher average rating than other recipes.
 
@@ -329,11 +331,21 @@ Since the p-value (0.1390) is greater than 0.05, we fail to reject the null hypo
 **Test Statistic**: Difference of means (sample mean rating of healthy recipes - sample mean rating of other recipes) 
 This is a good choice because our research question is specifically about whether one group tends to be rated lower on average, and ratings are numerical, so comparing group means is very interpretable.
 
+<iframe
+  src="assets/hypothesis-test.html"
+  width="800"
+  height="450"
+  frameborder="0"
+></iframe> 
+I used a significance level of 𝛼 = 0.05, which is a very standard threshold in statistical analysis. The observed p-value from the permutation test was 0.0524. Since 
+𝑝 = 0.0524 > 0.05, we fail to reject the null hypothesis as we do not have enough evidence to find that healthy-fitness-diet recipes are associated with a lower average rating.
 
-I chose the standard significance level of 0.05 to define statistical significance.
-Since the p-value (0.0480) is less than 0.05, we reject the null hypothesis.
-In these trials, we find that healthy-fitness-diet recipes have a lower average rating than other recipes.
+## Framing a Prediction Problem
+In this project, my prediction problem is to predict the number of steps (n_steps) in a recipe. This is a regression problem. At prediction time, a recipe platform or user would know nutritional information, calories, cooking time, and ingredient count from metadata, but not the full written steps. Predicting n_steps helps estimate recipe complexity before opening the full details.
 
+To evaluate my model, I use Root Mean Squared Error (RMSE). RMSE is the most appropriate metric for this regression problem as it penalizes large errors more heavily than MAE, which matters more as dramatically over- or under-predicting a recipe’s complexity is more harmful than being slightly off. Classification metrics like accuracy or F1-score are not suitable because this is not a classification task. By framing the problem as regression and evaluating with RMSE, the model aligns with both the structure of the data and the goal of predicting continuous user ratings.
 
-I used a significance level of 𝛼 = 0.05, which is a very standard threshold in statistical analysis. The observed p-value from the permutation test was 0.0480. Since 
-𝑝 = 0.0480 < 0.05, we reject the null hypothesis and conclude that, in this sample, healthy-fitness-diet recipes tend to have a lower average rating than other recipes. While the difference in means is small in magnitude, this test provides statistical evidence that these recipes are not rated as highly on average.
+## Baseline Model
+I built a regression model to predict the number of steps (n_steps) in a recipe using only information that would be available at prediction time, such as nutritional values, ingredient count, and preparation time. My baseline model was a multiple linear regression with 11 quantitative features: minutes, n_ingredients, calories, total_fat_pdv, sugar_pdv, sodium_pdv, protein_pdv, saturated_fat_pdv, carbohydrates_pdv, protein_grams, and protein_calorie_ratio. All of these variables are quantitative and continuous and the dataset did not include any ordinal or nominal features in the baseline model, so no encoding was required. I standardized all numeric features using a StandardScaler inside a ColumnTransformer to better analyze the coefficients of the Linear Regression model.
+
+The model achieved an RMSE of approximately 5.7046 and an R² of 0.1974. This indicates that the model captures a moderate amount of variance (~20%) but cannot represent the nonlinear relationships between features and recipe complexity. While the model captures a meaningful amount of variance in step count, I would not consider it “good” yet, because recipe complexity often depends on nonlinear interactions. For example, high-calorie recipes with many ingredients tend to have more steps. A linear model is restricted to modeling straight-line relationships, so it struggles to capture these patterns. This sets the stage for an improved model, a Random Forest, that can account for nonlinear structure in the data.

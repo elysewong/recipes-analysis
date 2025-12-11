@@ -10,6 +10,13 @@
   padding-right: 0 !important;
 }
 
+header, .sidebar, .masthead, .header, .site-header {
+    display: none !important;
+}
+
+body {
+    margin-top: 0 !important;
+}
 
 section {
   max-width: 70% !important;
