@@ -19,7 +19,138 @@ I approached data cleaning as follows:
 7. I then utilize the protein_calorie_ratio column to create a binary column indicating whether a recipe is suitable for a healthy fitness diet where the threshold is 10% (1 gram of protein for every 10 calories). This will be useful for our hypotheses testing later.
 The resulting dataframe is as follows:
 <div style="overflow-x: auto;">
-  '<table border="1" class="dataframe">\n  <thead>\n    <tr style="text-align: right;">\n      <th></th>\n      <th>name</th>\n      <th>id</th>\n      <th>minutes</th>\n      <th>contributor_id</th>\n      <th>submitted</th>\n      <th>tags</th>\n      <th>n_steps</th>\n      <th>steps</th>\n      <th>description</th>\n      <th>ingredients</th>\n      <th>n_ingredients</th>\n      <th>avg_rating</th>\n      <th>calories</th>\n      <th>total_fat_pdv</th>\n      <th>sugar_pdv</th>\n      <th>sodium_pdv</th>\n      <th>protein_pdv</th>\n      <th>saturated_fat_pdv</th>\n      <th>carbohydrates_pdv</th>\n      <th>protein_grams</th>\n      <th>protein_calorie_ratio</th>\n      <th>is_cutting_diet</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>brownies in the world best ever</td>\n      <td>333281</td>\n      <td>40</td>\n      <td>985201</td>\n      <td>2008-10-27</td>\n      <td>[\'60-minutes-or-less\', \'time-to-make\', \'course\', \'main-ingredient\', \'preparation\', \'for-large-groups\', \'desserts\', \'lunch\', \'snacks\', \'cookies-and-brownies\', \'chocolate\', \'bar-cookies\', \'brownies\', \'number-of-servings\']</td>\n      <td>10</td>\n      <td>[\'heat the oven to 350f and arrange the rack in the middle\', \'line an 8-by-8-inch glass baking dish with aluminum foil\', \'combine chocolate and butter in a medium saucepan and cook over medium-low heat , stirring frequently , until evenly melted\', \'remove from heat and let cool to room temperature\', \'combine eggs , sugar , cocoa powder , vanilla extract , espresso , and salt in a large bowl and briefly stir until just evenly incorporated\', \'add cooled chocolate and mix until uniform in color\', \'add flour and stir until just incorporated\', \'transfer batter to the prepared baking dish\', \'bake until a tester inserted in the center of the brownies comes out clean , about 25 to 30 minutes\', \'remove from the oven and cool completely before cutting\']</td>\n      <td>these are the most; chocolatey, moist, rich, dense, fudgy, delicious brownies that you\'ll ever make.....sereiously! there\'s no doubt that these will be your fav brownies ever for you can add things to them or make them plain.....either way they\'re pure heaven!</td>\n      <td>[\'bittersweet chocolate\', \'unsalted butter\', \'eggs\', \'granulated sugar\', \'unsweetened cocoa powder\', \'vanilla extract\', \'brewed espresso\', \'kosher salt\', \'all-purpose flour\']</td>\n      <td>9</td>\n      <td>4.0</td>\n      <td>138.4</td>\n      <td>10.0</td>\n      <td>50.0</td>\n      <td>3.0</td>\n      <td>3.0</td>\n      <td>19.0</td>\n      <td>6.0</td>\n      <td>1.5</td>\n      <td>0.01</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>in canada chocolate chip cookies</td>\n      <td>453467</td>\n      <td>45</td>\n      <td>1848091</td>\n      <td>2011-04-11</td>\n      <td>[\'60-minutes-or-less\', \'time-to-make\', \'cuisine\', \'preparation\', \'north-american\', \'for-large-groups\', \'canadian\', \'british-columbian\', \'number-of-servings\']</td>\n      <td>12</td>\n      <td>[\'pre-heat oven the 350 degrees f\', \'in a mixing bowl , sift together the flours and baking powder\', \'set aside\', \'in another mixing bowl , blend together the sugars , margarine , and salt until light and fluffy\', \'add the eggs , water , and vanilla to the margarine / sugar mixture and mix together until well combined\', \'add in the flour mixture to the wet ingredients and blend until combined\', \'scrape down the sides of the bowl and add the chocolate chips\', \'mix until combined\', \'scrape down the sides to the bowl again\', \'using an ice cream scoop , scoop evenly rounded balls of dough and place of cookie sheet about 1 - 2 inches apart to allow for spreading during baking\', \'bake for 10 - 15 minutes or until golden brown on the outside and soft &amp; chewy in the center\', \'serve hot and enjoy !\']</td>\n      <td>this is the recipe that we use at my school cafeteria for chocolate chip cookies. they must be the best chocolate chip cookies i have ever had! if you don\'t have margarine or don\'t like it, then just use butter (softened) instead.</td>\n      <td>[\'white sugar\', \'brown sugar\', \'salt\', \'margarine\', \'eggs\', \'vanilla\', \'water\', \'all-purpose flour\', \'whole wheat flour\', \'baking soda\', \'chocolate chips\']</td>\n      <td>11</td>\n      <td>5.0</td>\n      <td>595.1</td>\n      <td>46.0</td>\n      <td>211.0</td>\n      <td>22.0</td>\n      <td>13.0</td>\n      <td>51.0</td>\n      <td>26.0</td>\n      <td>6.5</td>\n      <td>0.01</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>broccoli casserole</td>\n      <td>306168</td>\n      <td>40</td>\n      <td>50969</td>\n      <td>2008-05-30</td>\n      <td>[\'60-minutes-or-less\', \'time-to-make\', \'course\', \'main-ingredient\', \'preparation\', \'side-dishes\', \'vegetables\', \'easy\', \'beginner-cook\', \'broccoli\']</td>\n      <td>6</td>\n      <td>[\'preheat oven to 350 degrees\', \'spray a 2 quart baking dish with cooking spray , set aside\', \'in a large bowl mix together broccoli , soup , one cup of cheese , garlic powder , pepper , salt , milk , 1 cup of french onions , and soy sauce\', \'pour into baking dish , sprinkle remaining cheese over top\', \'bake for 25 minutes or until cheese is lightly browned\', \'sprinkle with rest of french fried onions and bake until onions are browned and cheese is bubbly , about 10 more minutes\']</td>\n      <td>since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don\'t think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell\'s soup. but i think mine is better since i don\'t like cream of mushroom soup.submitted to "zaar" on may 28th,2008</td>\n      <td>[\'frozen broccoli cuts\', \'cream of chicken soup\', \'sharp cheddar cheese\', \'garlic powder\', \'ground black pepper\', \'salt\', \'milk\', \'soy sauce\', \'french-fried onions\']</td>\n      <td>9</td>\n      <td>5.0</td>\n      <td>194.8</td>\n      <td>20.0</td>\n      <td>6.0</td>\n      <td>32.0</td>\n      <td>22.0</td>\n      <td>36.0</td>\n      <td>3.0</td>\n      <td>11.0</td>\n      <td>0.06</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>pound cake</td>\n      <td>286009</td>\n      <td>120</td>\n      <td>461724</td>\n      <td>2008-02-12</td>\n      <td>[\'time-to-make\', \'course\', \'cuisine\', \'preparation\', \'occasion\', \'north-american\', \'desserts\', \'american\', \'southern-united-states\', \'dinner-party\', \'holiday-event\', \'cakes\', \'dietary\', \'christmas\', \'thanksgiving\', \'low-sodium\', \'low-in-something\', \'taste-mood\', \'sweet\', \'4-hours-or-less\']</td>\n      <td>7</td>\n      <td>[\'freheat the oven to 300 degrees\', \'grease a 10-inch tube pan with butter , dust the bottom and sides with flour , and set aside\', \'in a large mixing bowl , cream the butter and sugar with an electric mixer and add the eggs one at a time , beating after each addition\', \'alternately add the flour and milk , stirring till the batter is smooth\', \'add the two extracts and stir till well blended\', \'scrape the batter into the prepared pan and bake till a cake tester or knife blade inserted in the center comes out clean , about 1 1 / 2 hours\', \'cool the cake in the pan on a rack for 5 minutes , then turn it out on the rack to cool completely\']</td>\n      <td>why a millionaire pound cake?  because it\'s super rich!  this scrumptious cake is the pride of an elderly belle from jackson, mississippi.  the recipe comes from "the glory of southern cooking" by james villas.</td>\n      <td>[\'butter\', \'sugar\', \'eggs\', \'all-purpose flour\', \'whole milk\', \'pure vanilla extract\', \'almond extract\']</td>\n      <td>7</td>\n      <td>5.0</td>\n      <td>878.3</td>\n      <td>63.0</td>\n      <td>326.0</td>\n      <td>13.0</td>\n      <td>20.0</td>\n      <td>123.0</td>\n      <td>39.0</td>\n      <td>10.0</td>\n      <td>0.01</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>meatloaf</td>\n      <td>475785</td>\n      <td>90</td>\n      <td>2202916</td>\n      <td>2012-03-06</td>\n      <td>[\'time-to-make\', \'course\', \'main-ingredient\', \'preparation\', \'main-dish\', \'potatoes\', \'vegetables\', \'4-hours-or-less\', \'meatloaf\', \'simply-potatoes2\']</td>\n      <td>17</td>\n      <td>[\'pan fry bacon , and set aside on a paper towel to absorb excess grease\', \'mince yellow onion , red bell pepper , and add to your mixing bowl\', \'chop garlic and set aside\', \'put 1tbsp olive oil into a saut pan , along with chopped garlic , teaspoons white pepper and a pinch of kosher salt\', \'bring to a medium heat to sweat your garlic\', \'preheat oven to 350f\', \'coarsely chop your baby spinach add to your heated pan , stir frequently for approximately 5 min to wilt\', \'add your spinach to the mixing bowl\', \'chop your now cooled bacon , and add it to the mixing bowl\', \'add your meatloaf mix to the bowl , with one egg and mix till thoroughly combined\', \'add your goat cheese , one egg , 1 / 8 tsp white pepper and 1 / 8 tsp of kosher salt and mix till thoroughly combined\', \'transfer to a 9x5 meatloaf pan , and cook for 60 min or until the internal temperature is at least 160f\', \'let stand for 5min\', \'melt 1tbsp unsalted butter into a frying pan , and cook up to three eggs at a time\', \'crack each egg into a separate dish , in order to prevent egg shells from reaching the pan , then add salt and pepper to taste\', \'wait until the egg whites are firm looking , but slightly runny on top before flipping your eggs\', \'after flipping , wait 10~20 seconds before removing each egg and placing it over your slices of meatloaf\']</td>\n      <td>ready, set, cook! special edition contest entry: a mediterranean flavor inspired meatloaf dish. featuring: simply potatoes - shredded hash browns, egg, bacon, spinach, red bell pepper, and goat cheese.</td>\n      <td>[\'meatloaf mixture\', \'unsmoked bacon\', \'goat cheese\', \'unsalted butter\', \'eggs\', \'baby spinach\', \'yellow onion\', \'red bell pepper\', \'simply potatoes shredded hash browns\', \'fresh garlic\', \'kosher salt\', \'white pepper\', \'olive oil\']</td>\n      <td>13</td>\n      <td>5.0</td>\n      <td>267.0</td>\n      <td>30.0</td>\n      <td>12.0</td>\n      <td>12.0</td>\n      <td>29.0</td>\n      <td>48.0</td>\n      <td>2.0</td>\n      <td>14.5</td>\n      <td>0.05</td>\n      <td>0</td>\n    </tr>\n  </tbody>\n</table>'
+  <style>
+    .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    .styled-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+    }
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+        border: 1px solid #dddddd;
+    }
+    .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+    .styled-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+    .styled-table tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+    }
+    .styled-table tbody tr.active-row {
+        font-weight: bold;
+        color: #009879;
+    }
+    /* Set max width for text columns to enable wrap/scroll */
+    .styled-table .text-col {
+        max-width: 250px; 
+        white-space: normal;
+    }
+</style>
+
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>id</th>
+      <th>minutes</th>
+      <th>submitted</th>
+      <th>tags</th>
+      <th>n_steps</th>
+      <th>description</th>
+      <th>n_ingredients</th>
+      <th>avg_rating</th>
+      <th>sugar_pdv</th>
+      <th>protein_pdv</th>
+      <th>calories</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>brownies in the world best ever</td>
+      <td>333281</td>
+      <td>40</td>
+      <td>2008-10-27</td>
+      <td class="text-col">['60-minutes-or-less', 'desserts', 'cookies-and-brownies', 'chocolate', ...]</td>
+      <td>10</td>
+      <td class="text-col">these are the most; chocolatey, moist, rich, dense, fudgy, delicious brownies that you'll ever make.....sereiously!</td>
+      <td>9</td>
+      <td>4.0</td>
+      <td>50.0</td>
+      <td>3.0</td>
+      <td>138.4</td>
+    </tr>
+    <tr>
+      <td>in canada chocolate chip cookies</td>
+      <td>453467</td>
+      <td>45</td>
+      <td>2011-04-11</td>
+      <td class="text-col">['60-minutes-or-less', 'canadian', 'british-columbian', 'number-of-servings', ...]</td>
+      <td>12</td>
+      <td class="text-col">this is the recipe that we use at my school cafeteria for chocolate chip cookies. they must be the best...</td>
+      <td>11</td>
+      <td>5.0</td>
+      <td>211.0</td>
+      <td>13.0</td>
+      <td>595.1</td>
+    </tr>
+    <tr>
+      <td>broccoli casserole</td>
+      <td>306168</td>
+      <td>40</td>
+      <td>2008-05-30</td>
+      <td class="text-col">['60-minutes-or-less', 'side-dishes', 'vegetables', 'easy', 'broccoli', ...]</td>
+      <td>6</td>
+      <td class="text-col">since there are already 411 recipes for broccoli casserole posted to "zaar"...</td>
+      <td>9</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>22.0</td>
+      <td>194.8</td>
+    </tr>
+    <tr>
+      <td>pound cake</td>
+      <td>286009</td>
+      <td>120</td>
+      <td>2008-02-12</td>
+      <td class="text-col">['desserts', 'american', 'low-sodium', 'sweet', '4-hours-or-less', ...]</td>
+      <td>7</td>
+      <td class="text-col">why a millionaire pound cake? because it's super rich! this scrumptious cake is the pride of an elderly belle...</td>
+      <td>7</td>
+      <td>5.0</td>
+      <td>326.0</td>
+      <td>20.0</td>
+      <td>878.3</td>
+    </tr>
+    <tr>
+      <td>meatloaf</td>
+      <td>475785</td>
+      <td>90</td>
+      <td>2012-03-06</td>
+      <td class="text-col">['main-dish', 'potatoes', 'vegetables', 'meatloaf', 'simply-potatoes2', ...]</td>
+      <td>17</td>
+      <td class="text-col">ready, set, cook! special edition contest entry: a mediterranean flavor inspired meatloaf dish...</td>
+      <td>13</td>
+      <td>(Missing)</td>
+      <td>12.0</td>
+      <td>29.0</td>
+      <td>267.0</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
 ### Univariate Analysis
