@@ -19,100 +19,7 @@ I approached data cleaning as follows:
 7. I then utilize the protein_calorie_ratio column to create a binary column indicating whether a recipe is suitable for a healthy fitness diet where the threshold is 10% (1 gram of protein for every 10 calories). This will be useful for our hypotheses testing later.
 The resulting dataframe is as follows:
 <div style="overflow-x: auto;">
-  <div>
-  <style scoped>
-      .dataframe tbody tr th:only-of-type {
-          vertical-align: middle;
-      }
-
-      .dataframe tbody tr th {
-          vertical-align: top;
-      }
-
-      .dataframe thead th {
-          text-align: right;
-      }
-  </style>
-  <table border="1" class="dataframe">
-    <thead>
-      <tr style="text-align: right;">
-        <th></th>
-        <th>name</th>
-        <th>id</th>
-        <th>minutes</th>
-        <th>contributor_id</th>
-        <th>...</th>
-        <th>carbohydrates_pdv</th>
-        <th>protein_grams</th>
-        <th>protein_calorie_ratio</th>
-        <th>is_cutting_diet</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>0</th>
-        <td>brownies in the world best ever</td>
-        <td>333281</td>
-        <td>40</td>
-        <td>985201</td>
-        <td>...</td>
-        <td>6.0</td>
-        <td>1.5</td>
-        <td>0.01</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <th>1</th>
-        <td>in canada chocolate chip cookies</td>
-        <td>453467</td>
-        <td>45</td>
-        <td>1848091</td>
-        <td>...</td>
-        <td>26.0</td>
-        <td>6.5</td>
-        <td>0.01</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <th>2</th>
-        <td>broccoli casserole</td>
-        <td>306168</td>
-        <td>40</td>
-        <td>50969</td>
-        <td>...</td>
-        <td>3.0</td>
-        <td>11.0</td>
-        <td>0.06</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <th>3</th>
-        <td>pound cake</td>
-        <td>286009</td>
-        <td>120</td>
-        <td>461724</td>
-        <td>...</td>
-        <td>39.0</td>
-        <td>10.0</td>
-        <td>0.01</td>
-        <td>0</td>
-      </tr>
-      <tr>
-        <th>4</th>
-        <td>meatloaf</td>
-        <td>475785</td>
-        <td>90</td>
-        <td>2202916</td>
-        <td>...</td>
-        <td>2.0</td>
-        <td>14.5</td>
-        <td>0.05</td>
-        <td>0</td>
-      </tr>
-    </tbody>
-  </table>
-  <p>5 rows × 22 columns</p>
-  </div>
+  '<table border="1" class="dataframe">\n  <thead>\n    <tr style="text-align: right;">\n      <th></th>\n      <th>name</th>\n      <th>id</th>\n      <th>minutes</th>\n      <th>contributor_id</th>\n      <th>submitted</th>\n      <th>tags</th>\n      <th>n_steps</th>\n      <th>steps</th>\n      <th>description</th>\n      <th>ingredients</th>\n      <th>n_ingredients</th>\n      <th>avg_rating</th>\n      <th>calories</th>\n      <th>total_fat_pdv</th>\n      <th>sugar_pdv</th>\n      <th>sodium_pdv</th>\n      <th>protein_pdv</th>\n      <th>saturated_fat_pdv</th>\n      <th>carbohydrates_pdv</th>\n      <th>protein_grams</th>\n      <th>protein_calorie_ratio</th>\n      <th>is_cutting_diet</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>0</th>\n      <td>brownies in the world best ever</td>\n      <td>333281</td>\n      <td>40</td>\n      <td>985201</td>\n      <td>2008-10-27</td>\n      <td>[\'60-minutes-or-less\', \'time-to-make\', \'course\', \'main-ingredient\', \'preparation\', \'for-large-groups\', \'desserts\', \'lunch\', \'snacks\', \'cookies-and-brownies\', \'chocolate\', \'bar-cookies\', \'brownies\', \'number-of-servings\']</td>\n      <td>10</td>\n      <td>[\'heat the oven to 350f and arrange the rack in the middle\', \'line an 8-by-8-inch glass baking dish with aluminum foil\', \'combine chocolate and butter in a medium saucepan and cook over medium-low heat , stirring frequently , until evenly melted\', \'remove from heat and let cool to room temperature\', \'combine eggs , sugar , cocoa powder , vanilla extract , espresso , and salt in a large bowl and briefly stir until just evenly incorporated\', \'add cooled chocolate and mix until uniform in color\', \'add flour and stir until just incorporated\', \'transfer batter to the prepared baking dish\', \'bake until a tester inserted in the center of the brownies comes out clean , about 25 to 30 minutes\', \'remove from the oven and cool completely before cutting\']</td>\n      <td>these are the most; chocolatey, moist, rich, dense, fudgy, delicious brownies that you\'ll ever make.....sereiously! there\'s no doubt that these will be your fav brownies ever for you can add things to them or make them plain.....either way they\'re pure heaven!</td>\n      <td>[\'bittersweet chocolate\', \'unsalted butter\', \'eggs\', \'granulated sugar\', \'unsweetened cocoa powder\', \'vanilla extract\', \'brewed espresso\', \'kosher salt\', \'all-purpose flour\']</td>\n      <td>9</td>\n      <td>4.0</td>\n      <td>138.4</td>\n      <td>10.0</td>\n      <td>50.0</td>\n      <td>3.0</td>\n      <td>3.0</td>\n      <td>19.0</td>\n      <td>6.0</td>\n      <td>1.5</td>\n      <td>0.01</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>1</th>\n      <td>in canada chocolate chip cookies</td>\n      <td>453467</td>\n      <td>45</td>\n      <td>1848091</td>\n      <td>2011-04-11</td>\n      <td>[\'60-minutes-or-less\', \'time-to-make\', \'cuisine\', \'preparation\', \'north-american\', \'for-large-groups\', \'canadian\', \'british-columbian\', \'number-of-servings\']</td>\n      <td>12</td>\n      <td>[\'pre-heat oven the 350 degrees f\', \'in a mixing bowl , sift together the flours and baking powder\', \'set aside\', \'in another mixing bowl , blend together the sugars , margarine , and salt until light and fluffy\', \'add the eggs , water , and vanilla to the margarine / sugar mixture and mix together until well combined\', \'add in the flour mixture to the wet ingredients and blend until combined\', \'scrape down the sides of the bowl and add the chocolate chips\', \'mix until combined\', \'scrape down the sides to the bowl again\', \'using an ice cream scoop , scoop evenly rounded balls of dough and place of cookie sheet about 1 - 2 inches apart to allow for spreading during baking\', \'bake for 10 - 15 minutes or until golden brown on the outside and soft &amp; chewy in the center\', \'serve hot and enjoy !\']</td>\n      <td>this is the recipe that we use at my school cafeteria for chocolate chip cookies. they must be the best chocolate chip cookies i have ever had! if you don\'t have margarine or don\'t like it, then just use butter (softened) instead.</td>\n      <td>[\'white sugar\', \'brown sugar\', \'salt\', \'margarine\', \'eggs\', \'vanilla\', \'water\', \'all-purpose flour\', \'whole wheat flour\', \'baking soda\', \'chocolate chips\']</td>\n      <td>11</td>\n      <td>5.0</td>\n      <td>595.1</td>\n      <td>46.0</td>\n      <td>211.0</td>\n      <td>22.0</td>\n      <td>13.0</td>\n      <td>51.0</td>\n      <td>26.0</td>\n      <td>6.5</td>\n      <td>0.01</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>broccoli casserole</td>\n      <td>306168</td>\n      <td>40</td>\n      <td>50969</td>\n      <td>2008-05-30</td>\n      <td>[\'60-minutes-or-less\', \'time-to-make\', \'course\', \'main-ingredient\', \'preparation\', \'side-dishes\', \'vegetables\', \'easy\', \'beginner-cook\', \'broccoli\']</td>\n      <td>6</td>\n      <td>[\'preheat oven to 350 degrees\', \'spray a 2 quart baking dish with cooking spray , set aside\', \'in a large bowl mix together broccoli , soup , one cup of cheese , garlic powder , pepper , salt , milk , 1 cup of french onions , and soy sauce\', \'pour into baking dish , sprinkle remaining cheese over top\', \'bake for 25 minutes or until cheese is lightly browned\', \'sprinkle with rest of french fried onions and bake until onions are browned and cheese is bubbly , about 10 more minutes\']</td>\n      <td>since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don\'t think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell\'s soup. but i think mine is better since i don\'t like cream of mushroom soup.submitted to "zaar" on may 28th,2008</td>\n      <td>[\'frozen broccoli cuts\', \'cream of chicken soup\', \'sharp cheddar cheese\', \'garlic powder\', \'ground black pepper\', \'salt\', \'milk\', \'soy sauce\', \'french-fried onions\']</td>\n      <td>9</td>\n      <td>5.0</td>\n      <td>194.8</td>\n      <td>20.0</td>\n      <td>6.0</td>\n      <td>32.0</td>\n      <td>22.0</td>\n      <td>36.0</td>\n      <td>3.0</td>\n      <td>11.0</td>\n      <td>0.06</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>pound cake</td>\n      <td>286009</td>\n      <td>120</td>\n      <td>461724</td>\n      <td>2008-02-12</td>\n      <td>[\'time-to-make\', \'course\', \'cuisine\', \'preparation\', \'occasion\', \'north-american\', \'desserts\', \'american\', \'southern-united-states\', \'dinner-party\', \'holiday-event\', \'cakes\', \'dietary\', \'christmas\', \'thanksgiving\', \'low-sodium\', \'low-in-something\', \'taste-mood\', \'sweet\', \'4-hours-or-less\']</td>\n      <td>7</td>\n      <td>[\'freheat the oven to 300 degrees\', \'grease a 10-inch tube pan with butter , dust the bottom and sides with flour , and set aside\', \'in a large mixing bowl , cream the butter and sugar with an electric mixer and add the eggs one at a time , beating after each addition\', \'alternately add the flour and milk , stirring till the batter is smooth\', \'add the two extracts and stir till well blended\', \'scrape the batter into the prepared pan and bake till a cake tester or knife blade inserted in the center comes out clean , about 1 1 / 2 hours\', \'cool the cake in the pan on a rack for 5 minutes , then turn it out on the rack to cool completely\']</td>\n      <td>why a millionaire pound cake?  because it\'s super rich!  this scrumptious cake is the pride of an elderly belle from jackson, mississippi.  the recipe comes from "the glory of southern cooking" by james villas.</td>\n      <td>[\'butter\', \'sugar\', \'eggs\', \'all-purpose flour\', \'whole milk\', \'pure vanilla extract\', \'almond extract\']</td>\n      <td>7</td>\n      <td>5.0</td>\n      <td>878.3</td>\n      <td>63.0</td>\n      <td>326.0</td>\n      <td>13.0</td>\n      <td>20.0</td>\n      <td>123.0</td>\n      <td>39.0</td>\n      <td>10.0</td>\n      <td>0.01</td>\n      <td>0</td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>meatloaf</td>\n      <td>475785</td>\n      <td>90</td>\n      <td>2202916</td>\n      <td>2012-03-06</td>\n      <td>[\'time-to-make\', \'course\', \'main-ingredient\', \'preparation\', \'main-dish\', \'potatoes\', \'vegetables\', \'4-hours-or-less\', \'meatloaf\', \'simply-potatoes2\']</td>\n      <td>17</td>\n      <td>[\'pan fry bacon , and set aside on a paper towel to absorb excess grease\', \'mince yellow onion , red bell pepper , and add to your mixing bowl\', \'chop garlic and set aside\', \'put 1tbsp olive oil into a saut pan , along with chopped garlic , teaspoons white pepper and a pinch of kosher salt\', \'bring to a medium heat to sweat your garlic\', \'preheat oven to 350f\', \'coarsely chop your baby spinach add to your heated pan , stir frequently for approximately 5 min to wilt\', \'add your spinach to the mixing bowl\', \'chop your now cooled bacon , and add it to the mixing bowl\', \'add your meatloaf mix to the bowl , with one egg and mix till thoroughly combined\', \'add your goat cheese , one egg , 1 / 8 tsp white pepper and 1 / 8 tsp of kosher salt and mix till thoroughly combined\', \'transfer to a 9x5 meatloaf pan , and cook for 60 min or until the internal temperature is at least 160f\', \'let stand for 5min\', \'melt 1tbsp unsalted butter into a frying pan , and cook up to three eggs at a time\', \'crack each egg into a separate dish , in order to prevent egg shells from reaching the pan , then add salt and pepper to taste\', \'wait until the egg whites are firm looking , but slightly runny on top before flipping your eggs\', \'after flipping , wait 10~20 seconds before removing each egg and placing it over your slices of meatloaf\']</td>\n      <td>ready, set, cook! special edition contest entry: a mediterranean flavor inspired meatloaf dish. featuring: simply potatoes - shredded hash browns, egg, bacon, spinach, red bell pepper, and goat cheese.</td>\n      <td>[\'meatloaf mixture\', \'unsmoked bacon\', \'goat cheese\', \'unsalted butter\', \'eggs\', \'baby spinach\', \'yellow onion\', \'red bell pepper\', \'simply potatoes shredded hash browns\', \'fresh garlic\', \'kosher salt\', \'white pepper\', \'olive oil\']</td>\n      <td>13</td>\n      <td>5.0</td>\n      <td>267.0</td>\n      <td>30.0</td>\n      <td>12.0</td>\n      <td>12.0</td>\n      <td>29.0</td>\n      <td>48.0</td>\n      <td>2.0</td>\n      <td>14.5</td>\n      <td>0.05</td>\n      <td>0</td>\n    </tr>\n  </tbody>\n</table>'
 </div>
 
 ### Univariate Analysis
@@ -283,7 +190,7 @@ The 'name' and 'description' columns have missing values likely because some rec
 
 Another possibility is that the 'description' column is missing by design. Many recipe platforms have an optional description field and therefore, the missing descriptions occur because the dataset itself allows an empty description and users decide not to input. This is a classic example of missing by design!
 
-Based on the data-generating process, the column most likely to be NMAR (Not Missing At Random) is the avg_rating column. A recipe is missing an average rating only when no users rated it, and that missingness is likely caused by properties of the recipe itself (perhaps very niche recipes, or extremely new recipes). Because the reason a recipe has no ratings may be directly tied to its true (unobserved) rating, the missingness depends on the missing value itself, which is also characteristic of NMAR. 
+Based on the data-generating process, the column most likely to be NMAR (Not Missing At Random) is the avg_rating column. A recipe is missing an average rating only when no users rated it. The reason a recipe has no ratings may be directly tied to its true (unobserved) rating, the missingness depends on the missing value itself, which is also characteristic of NMAR. However,that missingness may also  be caused by properties of the recipe itself (perhaps very niche recipes, or extremely new recipes). 
 
 ### Missingness Dependency
 A column that the missingness of the 'avg_rating' column does depend on may be the 'submitted' column. The intuition is that newer recipes haven’t had as much time to receive ratings so missing avg_rating should be more common for recent submissions. 
@@ -300,7 +207,7 @@ To investigate this, we ran a permutation test to investigate whether the missin
   height="450"
   frameborder="0"
 ></iframe> 
-The observed difference in mean submission year between missing and non-missing recipes was ~0.73, indicating that recipes without ratings tend to be substantially newer. When we permuted the missingness indicator 10,000 times, none of the simulated mean differences were as extreme as the observed one, yielding a p-value of approximately 0. Since the p-value (~0) is less than 0.05, we reject the null hypothesis. This test provides statistical evidence that the missingness of avg_rating depends on the year the recipe was submitted.
+The observed difference in mean submission year between missing and non-missing recipes was ~0.73, indicating that recipes without ratings tend to be substantially newer. When we permuted the missingness indicator 10,000 times, none of the simulated mean differences were as extreme as the observed one, yielding a p-value of approximately 0. Since the p-value (~0) is less than 0.05, we reject the null hypothesis. This test provides statistical evidence that the missingness of avg_rating depends on the year the recipe was submitted, proving MAR.
 
 Next, we can examine whether the missingness of the 'avg_rating' column depends on the number of ingredients in a recipe. We suspect the missingness of the avg_rating column does not depend on the number of ingredients, but we will still investigate!
 <iframe
@@ -318,17 +225,17 @@ The null hypothesis is that there is no relationship between the number of ingre
   height="450"
   frameborder="0"
 ></iframe> 
-Since the p-value (0.1390) is greater than 0.05, we fail to reject the null hypothesis. We do not find sufficient evidence to suggest that the missingness of avg_rating depends on the number of ingredients in a recipe.
+Since the p-value (0.1190) is greater than 0.05, we fail to reject the null hypothesis. We do not find sufficient evidence to suggest that the missingness of avg_rating depends on the number of ingredients in a recipe.
 
-We do not impute missing values in the name, description, or avg_rating columns. We do not fill in missing values for name or description because these fields are not relevant to our prediction task and there is no sensible way to impute them since these columns contain free-form string text. For the avg_rating column, which will later act as the response variable, filling in missing values would skew the logic behind supervised learning as our goal is to predict ratings. Any imputation of ratings would bias the training process.
+We do not impute missing values in the name, description, or avg_rating columns. We do not fill in missing values for name or description because these fields are not relevant to our prediction task and there is no sensible way to impute them since these columns contain free-form string text. For the avg_rating column, filling in missing values would skew the logic behind our data as the reason these values are null are because they have not yet been rated. Any imputation of ratings would bias the training process as we are falsifying this information.
 
 ## **Hypothesis Testing**
-**Null Hypothesis**: Healthy-fitness-diet recipes have the same or higher average rating than other recipes.
+*Null Hypothesis*: Healthy-fitness-diet recipes have the same or higher average rating than other recipes.
 
-**Alternative Hypothesis**: Healthy-fitness-diet recipes have a lower average rating than other recipes.
+*Alternative Hypothesis*: Healthy-fitness-diet recipes have a lower average rating than other recipes.
 
 
-**Test Statistic**: Difference of means (sample mean rating of healthy recipes - sample mean rating of other recipes) 
+*Test Statistic*: Difference of means (sample mean rating of healthy recipes - sample mean rating of other recipes) 
 This is a good choice because our research question is specifically about whether one group tends to be rated lower on average, and ratings are numerical, so comparing group means is very interpretable.
 
 <iframe
@@ -337,8 +244,7 @@ This is a good choice because our research question is specifically about whethe
   height="450"
   frameborder="0"
 ></iframe> 
-I used a significance level of 𝛼 = 0.05, which is a very standard threshold in statistical analysis. The observed p-value from the permutation test was 0.0524. Since 
-𝑝 = 0.0524 > 0.05, we fail to reject the null hypothesis as we do not have enough evidence to find that healthy-fitness-diet recipes are associated with a lower average rating.
+I used a significance level of 𝛼 = 0.05, which is a very standard threshold in statistical analysis. The observed p-value from the permutation test was 0.0524. Since 𝑝 = 0.0537 > 0.05, we fail to reject the null hypothesis as we do not have enough evidence to find that healthy-fitness-diet recipes are associated with a lower average rating.
 
 ## Framing a Prediction Problem
 In this project, my prediction problem is to predict the number of steps (n_steps) in a recipe. This is a regression problem. At prediction time, a recipe platform or user would know nutritional information, calories, cooking time, and ingredient count from metadata, but not the full written steps. Predicting n_steps helps estimate recipe complexity before opening the full details.
@@ -346,10 +252,15 @@ In this project, my prediction problem is to predict the number of steps (n_step
 To evaluate my model, I use Root Mean Squared Error (RMSE). RMSE is the most appropriate metric for this regression problem as it penalizes large errors more heavily than MAE, which matters more as dramatically over- or under-predicting a recipe’s complexity is more harmful than being slightly off. Classification metrics like accuracy or F1-score are not suitable because this is not a classification task. By framing the problem as regression and evaluating with RMSE, the model aligns with both the structure of the data and the goal of predicting continuous user ratings.
 
 ## Baseline Model
-I built a regression model to predict the number of steps (n_steps) in a recipe using only information that would be available at prediction time, such as nutritional values, ingredient count, and preparation time. My baseline model was a multiple linear regression with 11 quantitative features: minutes, n_ingredients, calories, total_fat_pdv, sugar_pdv, sodium_pdv, protein_pdv, saturated_fat_pdv, carbohydrates_pdv, protein_grams, and protein_calorie_ratio. All of these variables are quantitative and continuous and the dataset did not include any ordinal or nominal features in the baseline model, so no encoding was required. I standardized all numeric features using a StandardScaler inside a ColumnTransformer to better analyze the coefficients of the Linear Regression model.
 
-The model achieved an RMSE of approximately 5.7046 and an R² of 0.1974. This indicates that the model captures a moderate amount of variance (~20%) but cannot represent the nonlinear relationships between features and recipe complexity. While the model captures a meaningful amount of variance in step count, I would not consider it “good” yet, because recipe complexity often depends on nonlinear interactions. For example, high-calorie recipes with many ingredients tend to have more steps. A linear model is restricted to modeling straight-line relationships, so it struggles to capture these patterns. This sets the stage for an improved model, a Random Forest, that can account for nonlinear structure in the data.
+For my baseline model, I attempt to use a linear regression model to predict the target variable, n_steps. The model utilizes three quantitative features: minutes, n_ingredients, and avg_rating. I utilize a Pipeline and ColumnTransformer to handle different preprocessing needs. Specifically, the avg_rating feature contains missing values, so I transformed using a Pipeline that first applies mean imputation (SimpleImputer) and then scales the result (StandardScaler). The remaining numerical features, minutes and n_ingredients, are also transformed via StandardScaler. Although standard scaling does not inherently improve the prediction accuracy of a LinearRegression model, applying it to all input features is beneficial to ensures all features are on a comparable scale. Finally, the preprocessed features are fed into the LinearRegression model, and the model's performance on the unseen test data is evaluated using Root Mean Squared Error (RMSE) and the R-squared score, which measures the proportion of the target's variance explained by the features
+
+The model achieved an RMSE of approximately 5.7564 and an R² of 0.1828. This indicates that the model captures a moderate amount of variance (~20%) but cannot represent the nonlinear relationships between features and recipe complexity. While the model captures a minor amount of variance in step count, I would not consider it “good” yet, because recipe complexity often depends on nonlinear interactions. For example, high-calorie recipes with many ingredients tend to have more steps. A linear model is restricted to modeling straight-line relationships, so it struggles to capture these patterns. This sets the stage for an improved model, a Random Forest, that can account for nonlinear structure in the data.
 
 ## Final Model
 
 ## Fairness Analysis
+The fairness analysis was conducted using a Permutation Test to assess if the RandomForestRegressor model performs differently across distinct user demographics, specifically defined by the recipes' sugar content. Group X (High-Sugar) consisted of recipes with a Percent Daily Value for Sugar (sugar_pdv) ≥ 12.0 (the data median), serving as a proxy for "bakers" or "sugar lovers," while Group Y (Low-Sugar) consisted of recipes with sugar_pdv < 12.0. The chosen *evaluation metric* was Root Mean Squared Error (RMSE), and the *Test Statistic* was the difference, High-Sugar Group RMSE − Low-Sugar Group RMSE.
+Our *Null Hypothesis* was that the model is fair, meaning the error difference is zero. The *Alternative Hypothesis* was that the model is unfair, with a higher error for the High-Sugar group. The test yielded an Observed Test Statistic of 2.5002 (with the High-Sugar Group RMSE  = 4.9497 and Low-Sugar Group RMSE = 2.4495). 
+
+Running 1,000 permutations resulted in a P-value of 0.3337. Since this p-value is greater than the significance level (α = 0.05), we fail to reject the Null Hypothesis. There is no statistically significant evidence that the model performs worse for the High-Sugar group. The relevance of this finding indicates that the quality of service (prediction accuracy of step count) is equitable. Both "bakers" and "savory lovers" can rely on the model equally, preventing the unequal user experience that would occur if the model were biased against a specific dietary subpopulation.
