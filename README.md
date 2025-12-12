@@ -394,12 +394,21 @@ The final model for predicting recipe step count (n_steps) was constructed using
 This final pipeline was significantly enhanced through feature engineering, which aimed to increase the complexity of the recipes. When picking these features, I thought about how the number of steps is determined likely not just by time, but by the recipe's complexity and also its culinary category. The new features added were: 
 1. all nutritional information (e.g., calories, sugar_pdv), which I believe gives us context on recipe type. 
 2. Recipe Age, calculated from the submitted date, to account for potential changes in recipe conventions over time
-3. Top 10 Tags and Top 50 Ingredients, which capture the specific items and processes involved. For instance, recipes containing "yeast" or the tag "dessert" can likely imply more complex steps that are not linearly related to preparation time (minutes). These features could provide helpful non-linear signals to the Random Forest.
+3. Top 10 Tags, which capture the specific items and processes involved. For instance, recipes containing the tag "dessert" can likely imply more complex steps that are not linearly related to preparation time (minutes). These features could provide helpful non-linear signals to the Random Forest.
 
-This engineered approach led to a substantial performance improvement: the Final Model achieved an R-squared of approximately 0.65 and an RMSE of approximately 1.25. This is a big improvement over our Baseline Linear Regression model, which achieved an RMSE of approximately 5.7564 and an R² of 0.1828. This shows how the baseline model was not complex enough to capture the underlying structure of the data.
+The best parameters were {'regressor__max_depth': 20, 'regressor__min_samples_split': 10, 'regressor__n_estimators': 500}.
+
+This engineered approach led to a performance improvement: the Final Model achieved an R-squared of approximately 0.37 and an RMSE of approximately 5.0610. This is a big improvement over our Baseline Linear Regression model, which achieved an RMSE of approximately 5.7564 and an R² of 0.1828. This shows how the baseline model was not complex enough to capture the underlying structure of the data. There is still much to improve with this model
 
 ## Fairness Analysis
-The fairness analysis was conducted using a Permutation Test to assess if the RandomForestRegressor model performs differently across distinct user demographics, specifically defined by the recipes' sugar content. Group X (High-Sugar) consisted of recipes with a Percent Daily Value for Sugar (sugar_pdv) ≥ 12.0 (the data median), serving as a proxy for "bakers" or "sugar lovers," while Group Y (Low-Sugar) consisted of recipes with sugar_pdv < 12.0. The chosen *evaluation metric* was Root Mean Squared Error (RMSE), and the *Test Statistic* was the difference, High-Sugar Group RMSE − Low-Sugar Group RMSE.
-Our *Null Hypothesis* was that the model is fair, meaning the error difference is zero. The *Alternative Hypothesis* was that the model is unfair, with a higher error for the High-Sugar group. The test yielded an Observed Test Statistic of 2.5002 (with the High-Sugar Group RMSE  = 4.9497 and Low-Sugar Group RMSE = 2.4495). 
+The fairness analysis was conducted using a Permutation Test to assess if the RandomForestRegressor model performs differently across distinct user demographics, specifically defined by the recipes' sugar content. Group X (High-Sugar) consisted of recipes with a Percent Daily Value for Sugar (sugar_pdv) ≥ 12.0 (the data median), serving as a proxy for "bakers" or "sugar lovers," while Group Y (Low-Sugar) consisted of recipes with sugar_pdv < 12.0. The chosen evaluation metric was Root Mean Squared Error (RMSE), and the Test Statistic was the difference, High-Sugar Group RMSE − Low-Sugar Group RMSE.
 
-Running 1,000 permutations resulted in a P-value of 0.3337. Since this p-value is greater than the significance level (α = 0.05), we fail to reject the Null Hypothesis. There is no statistically significant evidence that the model performs worse for the High-Sugar group. The relevance of this finding indicates that the quality of service (prediction accuracy of step count) is equitable. Both "bakers" and "savory lovers" can rely on the model equally, preventing the unequal user experience that would occur if the model were biased against a specific dietary subpopulation.
+Our Null Hypothesis was that the model is fair, meaning the error difference is zero. The Alternative Hypothesis was that the model is unfair, with a higher error for the High-Sugar group. The test yielded an Observed Test Statistic of 0.3449 (with the High-Sugar Group RMSE  = 5.1642 and Low-Sugar Group RMSE = 4.8193). 
+
+<iframe
+  src="assets/fairness.html"
+  width="800"
+  height="450"
+  frameborder="0"
+></iframe> 
+Running 1,000 permutations resulted in a P-value of 0.0260. Since this p-value is greater than the significance level (α = 0.05), we reject the Null Hypothesis. There is statistically significant evidence that the model seems to perform significantly worse for the High-Sugar group (Group X) This means both "bakers" and "savory lovers" can't rely on the model equally, showing an unequal user experience since the model shows bias against a specific dietary subpopulation.
