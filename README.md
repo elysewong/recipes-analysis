@@ -283,7 +283,7 @@ The 'name' and 'description' columns have missing values likely because some rec
 
 Another possibility is that the 'description' column is missing by design. Many recipe platforms have an optional description field and therefore, the missing descriptions occur because the dataset itself allows an empty description and users decide not to input. This is a classic example of missing by design!
 
-Based on the data-generating process, the column most likely to be NMAR (Not Missing At Random) is the avg_rating column. A recipe is missing an average rating only when no users rated it. The reason a recipe has no ratings may be directly tied to its true (unobserved) rating, the missingness depends on the missing value itself, which is also characteristic of NMAR. However,that missingness may also  be caused by properties of the recipe itself (perhaps very niche recipes, or extremely new recipes). 
+Based on the data-generating process, the column most likely to be NMAR (Not Missing At Random) is the avg_rating column. A recipe is missing an average rating only when no users rated it. The reason a recipe has no ratings may be directly tied to its true (unobserved) rating, the missingness depends on the missing value itself, which is also characteristic of NMAR. However, that missingness may also  be caused by properties of the recipe itself (perhaps very niche recipes, or extremely new recipes). 
 
 ### Missingness Dependency
 A column that the missingness of the 'avg_rating' column does depend on may be the 'submitted' column. The intuition is that newer recipes haven’t had as much time to receive ratings so missing avg_rating should be more common for recent submissions. 
