@@ -403,7 +403,7 @@ This engineered approach led to a performance improvement: the Final Model achie
 ## Fairness Analysis
 The fairness analysis was conducted using a Permutation Test to assess if the RandomForestRegressor model performs differently across distinct user demographics, specifically defined by the recipes' sugar content. Group X (High-Sugar) consisted of recipes with a Percent Daily Value for Sugar (sugar_pdv) ≥ 12.0 (the data median), serving as a proxy for "bakers" or "sugar lovers," while Group Y (Low-Sugar) consisted of recipes with sugar_pdv < 12.0. The chosen evaluation metric was Root Mean Squared Error (RMSE), and the Test Statistic was the difference, High-Sugar Group RMSE − Low-Sugar Group RMSE.
 
-Our Null Hypothesis was that the model is fair, meaning the error difference is zero. The Alternative Hypothesis was that the model is unfair, with a higher error for the High-Sugar group. The test yielded an Observed Test Statistic of 0.3449 (with the High-Sugar Group RMSE  = 5.1642 and Low-Sugar Group RMSE = 4.8193). 
+Our Null Hypothesis was that the model is fair, meaning the error difference is zero. The Alternative Hypothesis was that the model is unfair, with a higher error for the High-Sugar group. The test yielded an Observed Test Statistic of 0.3449 (with the High-Sugar Group RMSE = 5.1642 and Low-Sugar Group RMSE = 4.8193). 
 
 <iframe
   src="assets/fairness.html"
