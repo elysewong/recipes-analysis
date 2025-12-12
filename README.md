@@ -32,7 +32,7 @@ The resulting dataframe is as follows:
         white-space: nowrap;
     }
     .styled-table thead tr {
-        background-color: #009879;
+        background-color: #587A54;
         color: #ffffff;
         text-align: left;
     }
