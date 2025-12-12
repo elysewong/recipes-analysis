@@ -19,138 +19,7 @@ I approached data cleaning as follows:
 7. I then utilize the protein_calorie_ratio column to create a binary column indicating whether a recipe is suitable for a healthy fitness diet where the threshold is 10% (1 gram of protein for every 10 calories). This will be useful for our hypotheses testing later.
 The resulting dataframe is as follows:
 <div style="overflow-x: auto;">
-  <style>
-    .styled-table {
-        border-collapse: collapse;
-        margin: 25px 0;
-        font-size: 0.9em;
-        font-family: sans-serif;
-        min-width: 400px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-        width: 100%;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-    .styled-table thead tr {
-        background-color: #587A54;
-        color: #ffffff;
-        text-align: left;
-    }
-    .styled-table th,
-    .styled-table td {
-        padding: 12px 15px;
-        border: 1px solid #dddddd;
-    }
-    .styled-table tbody tr {
-        border-bottom: 1px solid #dddddd;
-    }
-    .styled-table tbody tr:nth-of-type(even) {
-        background-color: #f3f3f3;
-    }
-    .styled-table tbody tr:last-of-type {
-        border-bottom: 2px solid #009879;
-    }
-    .styled-table tbody tr.active-row {
-        font-weight: bold;
-        color: #009879;
-    }
-    /* Set max width for text columns to enable wrap/scroll */
-    .styled-table .text-col {
-        max-width: 250px; 
-        white-space: normal;
-    }
-</style>
-
-<table class="styled-table">
-  <thead>
-    <tr>
-      <th>name</th>
-      <th>id</th>
-      <th>minutes</th>
-      <th>submitted</th>
-      <th>tags</th>
-      <th>n_steps</th>
-      <th>description</th>
-      <th>n_ingredients</th>
-      <th>avg_rating</th>
-      <th>sugar_pdv</th>
-      <th>protein_pdv</th>
-      <th>calories</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>brownies in the world best ever</td>
-      <td>333281</td>
-      <td>40</td>
-      <td>2008-10-27</td>
-      <td class="text-col">['60-minutes-or-less', 'desserts', 'cookies-and-brownies', 'chocolate', ...]</td>
-      <td>10</td>
-      <td class="text-col">these are the most; chocolatey, moist, rich, dense, fudgy, delicious brownies that you'll ever make.....sereiously!</td>
-      <td>9</td>
-      <td>4.0</td>
-      <td>50.0</td>
-      <td>3.0</td>
-      <td>138.4</td>
-    </tr>
-    <tr>
-      <td>in canada chocolate chip cookies</td>
-      <td>453467</td>
-      <td>45</td>
-      <td>2011-04-11</td>
-      <td class="text-col">['60-minutes-or-less', 'canadian', 'british-columbian', 'number-of-servings', ...]</td>
-      <td>12</td>
-      <td class="text-col">this is the recipe that we use at my school cafeteria for chocolate chip cookies. they must be the best...</td>
-      <td>11</td>
-      <td>5.0</td>
-      <td>211.0</td>
-      <td>13.0</td>
-      <td>595.1</td>
-    </tr>
-    <tr>
-      <td>broccoli casserole</td>
-      <td>306168</td>
-      <td>40</td>
-      <td>2008-05-30</td>
-      <td class="text-col">['60-minutes-or-less', 'side-dishes', 'vegetables', 'easy', 'broccoli', ...]</td>
-      <td>6</td>
-      <td class="text-col">since there are already 411 recipes for broccoli casserole posted to "zaar"...</td>
-      <td>9</td>
-      <td>5.0</td>
-      <td>6.0</td>
-      <td>22.0</td>
-      <td>194.8</td>
-    </tr>
-    <tr>
-      <td>pound cake</td>
-      <td>286009</td>
-      <td>120</td>
-      <td>2008-02-12</td>
-      <td class="text-col">['desserts', 'american', 'low-sodium', 'sweet', '4-hours-or-less', ...]</td>
-      <td>7</td>
-      <td class="text-col">why a millionaire pound cake? because it's super rich! this scrumptious cake is the pride of an elderly belle...</td>
-      <td>7</td>
-      <td>5.0</td>
-      <td>326.0</td>
-      <td>20.0</td>
-      <td>878.3</td>
-    </tr>
-    <tr>
-      <td>meatloaf</td>
-      <td>475785</td>
-      <td>90</td>
-      <td>2012-03-06</td>
-      <td class="text-col">['main-dish', 'potatoes', 'vegetables', 'meatloaf', 'simply-potatoes2', ...]</td>
-      <td>17</td>
-      <td class="text-col">ready, set, cook! special edition contest entry: a mediterranean flavor inspired meatloaf dish...</td>
-      <td>13</td>
-      <td>(Missing)</td>
-      <td>12.0</td>
-      <td>29.0</td>
-      <td>267.0</td>
-    </tr>
-  </tbody>
-</table>
+  '| name                             |     id |   minutes |   contributor_id | submitted           | tags                                                                                                                                                                                                                                                                                                                                       |   n_steps | steps                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | description                                                                                                                                                                                                                                                                                                                                                                       | ingredients                                                                                                                                                                                                                             |   n_ingredients |   avg_rating |   calories |   total_fat_pdv |   sugar_pdv |   sodium_pdv |   protein_pdv |   saturated_fat_pdv |   carbohydrates_pdv |   protein_grams |   protein_calorie_ratio |   is_cutting_diet |\n|:---------------------------------|-------:|----------:|-----------------:|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------:|-------------:|-----------:|----------------:|------------:|-------------:|--------------:|--------------------:|--------------------:|----------------:|------------------------:|------------------:|\n| brownies in the world best ever  | 333281 |        40 |           985201 | 2008-10-27 00:00:00 | ["\'60-minutes-or-less\'", "\'time-to-make\'", "\'course\'", "\'main-ingredient\'", "\'preparation\'", "\'for-large-groups\'", "\'desserts\'", "\'lunch\'", "\'snacks\'", "\'cookies-and-brownies\'", "\'chocolate\'", "\'bar-cookies\'", "\'brownies\'", "\'number-of-servings\'"]                                                                                    |        10 | [\'heat the oven to 350f and arrange the rack in the middle\', \'line an 8-by-8-inch glass baking dish with aluminum foil\', \'combine chocolate and butter in a medium saucepan and cook over medium-low heat , stirring frequently , until evenly melted\', \'remove from heat and let cool to room temperature\', \'combine eggs , sugar , cocoa powder , vanilla extract , espresso , and salt in a large bowl and briefly stir until just evenly incorporated\', \'add cooled chocolate and mix until uniform in color\', \'add flour and stir until just incorporated\', \'transfer batter to the prepared baking dish\', \'bake until a tester inserted in the center of the brownies comes out clean , about 25 to 30 minutes\', \'remove from the oven and cool completely before cutting\']                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | these are the most; chocolatey, moist, rich, dense, fudgy, delicious brownies that you\'ll ever make.....sereiously! there\'s no doubt that these will be your fav brownies ever for you can add things to them or make them plain.....either way they\'re pure heaven!                                                                                                              | [\'bittersweet chocolate\', \'unsalted butter\', \'eggs\', \'granulated sugar\', \'unsweetened cocoa powder\', \'vanilla extract\', \'brewed espresso\', \'kosher salt\', \'all-purpose flour\']                                                          |               9 |            4 |      138.4 |              10 |          50 |            3 |             3 |                  19 |                   6 |             1.5 |               0.0108382 |                 0 |\n| in canada chocolate chip cookies | 453467 |        45 |          1848091 | 2011-04-11 00:00:00 | ["\'60-minutes-or-less\'", "\'time-to-make\'", "\'cuisine\'", "\'preparation\'", "\'north-american\'", "\'for-large-groups\'", "\'canadian\'", "\'british-columbian\'", "\'number-of-servings\'"]                                                                                                                                                            |        12 | [\'pre-heat oven the 350 degrees f\', \'in a mixing bowl , sift together the flours and baking powder\', \'set aside\', \'in another mixing bowl , blend together the sugars , margarine , and salt until light and fluffy\', \'add the eggs , water , and vanilla to the margarine / sugar mixture and mix together until well combined\', \'add in the flour mixture to the wet ingredients and blend until combined\', \'scrape down the sides of the bowl and add the chocolate chips\', \'mix until combined\', \'scrape down the sides to the bowl again\', \'using an ice cream scoop , scoop evenly rounded balls of dough and place of cookie sheet about 1 - 2 inches apart to allow for spreading during baking\', \'bake for 10 - 15 minutes or until golden brown on the outside and soft & chewy in the center\', \'serve hot and enjoy !\']                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | this is the recipe that we use at my school cafeteria for chocolate chip cookies. they must be the best chocolate chip cookies i have ever had! if you don\'t have margarine or don\'t like it, then just use butter (softened) instead.                                                                                                                                            | [\'white sugar\', \'brown sugar\', \'salt\', \'margarine\', \'eggs\', \'vanilla\', \'water\', \'all-purpose flour\', \'whole wheat flour\', \'baking soda\', \'chocolate chips\']                                                                             |              11 |            5 |      595.1 |              46 |         211 |           22 |            13 |                  51 |                  26 |             6.5 |               0.0109225 |                 0 |\n| broccoli casserole               | 306168 |        40 |            50969 | 2008-05-30 00:00:00 | ["\'60-minutes-or-less\'", "\'time-to-make\'", "\'course\'", "\'main-ingredient\'", "\'preparation\'", "\'side-dishes\'", "\'vegetables\'", "\'easy\'", "\'beginner-cook\'", "\'broccoli\'"]                                                                                                                                                                   |         6 | [\'preheat oven to 350 degrees\', \'spray a 2 quart baking dish with cooking spray , set aside\', \'in a large bowl mix together broccoli , soup , one cup of cheese , garlic powder , pepper , salt , milk , 1 cup of french onions , and soy sauce\', \'pour into baking dish , sprinkle remaining cheese over top\', \'bake for 25 minutes or until cheese is lightly browned\', \'sprinkle with rest of french fried onions and bake until onions are browned and cheese is bubbly , about 10 more minutes\']                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don\'t think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell\'s soup. but i think mine is better since i don\'t like cream of mushroom soup.submitted to "zaar" on may 28th,2008 | [\'frozen broccoli cuts\', \'cream of chicken soup\', \'sharp cheddar cheese\', \'garlic powder\', \'ground black pepper\', \'salt\', \'milk\', \'soy sauce\', \'french-fried onions\']                                                                   |               9 |            5 |      194.8 |              20 |           6 |           32 |            22 |                  36 |                   3 |            11   |               0.0564682 |                 0 |\n| pound cake                       | 286009 |       120 |           461724 | 2008-02-12 00:00:00 | ["\'time-to-make\'", "\'course\'", "\'cuisine\'", "\'preparation\'", "\'occasion\'", "\'north-american\'", "\'desserts\'", "\'american\'", "\'southern-united-states\'", "\'dinner-party\'", "\'holiday-event\'", "\'cakes\'", "\'dietary\'", "\'christmas\'", "\'thanksgiving\'", "\'low-sodium\'", "\'low-in-something\'", "\'taste-mood\'", "\'sweet\'", "\'4-hours-or-less\'"] |         7 | [\'freheat the oven to 300 degrees\', \'grease a 10-inch tube pan with butter , dust the bottom and sides with flour , and set aside\', \'in a large mixing bowl , cream the butter and sugar with an electric mixer and add the eggs one at a time , beating after each addition\', \'alternately add the flour and milk , stirring till the batter is smooth\', \'add the two extracts and stir till well blended\', \'scrape the batter into the prepared pan and bake till a cake tester or knife blade inserted in the center comes out clean , about 1 1 / 2 hours\', \'cool the cake in the pan on a rack for 5 minutes , then turn it out on the rack to cool completely\']                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | why a millionaire pound cake?  because it\'s super rich!  this scrumptious cake is the pride of an elderly belle from jackson, mississippi.  the recipe comes from "the glory of southern cooking" by james villas.                                                                                                                                                                | [\'butter\', \'sugar\', \'eggs\', \'all-purpose flour\', \'whole milk\', \'pure vanilla extract\', \'almond extract\']                                                                                                                                |               7 |            5 |      878.3 |              63 |         326 |           13 |            20 |                 123 |                  39 |            10   |               0.0113856 |                 0 |\n| meatloaf                         | 475785 |        90 |          2202916 | 2012-03-06 00:00:00 | ["\'time-to-make\'", "\'course\'", "\'main-ingredient\'", "\'preparation\'", "\'main-dish\'", "\'potatoes\'", "\'vegetables\'", "\'4-hours-or-less\'", "\'meatloaf\'", "\'simply-potatoes2\'"]                                                                                                                                                                 |        17 | [\'pan fry bacon , and set aside on a paper towel to absorb excess grease\', \'mince yellow onion , red bell pepper , and add to your mixing bowl\', \'chop garlic and set aside\', \'put 1tbsp olive oil into a saut pan , along with chopped garlic , teaspoons white pepper and a pinch of kosher salt\', \'bring to a medium heat to sweat your garlic\', \'preheat oven to 350f\', \'coarsely chop your baby spinach add to your heated pan , stir frequently for approximately 5 min to wilt\', \'add your spinach to the mixing bowl\', \'chop your now cooled bacon , and add it to the mixing bowl\', \'add your meatloaf mix to the bowl , with one egg and mix till thoroughly combined\', \'add your goat cheese , one egg , 1 / 8 tsp white pepper and 1 / 8 tsp of kosher salt and mix till thoroughly combined\', \'transfer to a 9x5 meatloaf pan , and cook for 60 min or until the internal temperature is at least 160f\', \'let stand for 5min\', \'melt 1tbsp unsalted butter into a frying pan , and cook up to three eggs at a time\', \'crack each egg into a separate dish , in order to prevent egg shells from reaching the pan , then add salt and pepper to taste\', \'wait until the egg whites are firm looking , but slightly runny on top before flipping your eggs\', \'after flipping , wait 10~20 seconds before removing each egg and placing it over your slices of meatloaf\'] | ready, set, cook! special edition contest entry: a mediterranean flavor inspired meatloaf dish. featuring: simply potatoes - shredded hash browns, egg, bacon, spinach, red bell pepper, and goat cheese.                                                                                                                                                                         | [\'meatloaf mixture\', \'unsmoked bacon\', \'goat cheese\', \'unsalted butter\', \'eggs\', \'baby spinach\', \'yellow onion\', \'red bell pepper\', \'simply potatoes shredded hash browns\', \'fresh garlic\', \'kosher salt\', \'white pepper\', \'olive oil\'] |              13 |            5 |      267   |              30 |          12 |           12 |            29 |                  48 |                   2 |            14.5 |               0.0543071 |                 0 |'
 </div>
 
 ### Univariate Analysis
@@ -356,7 +225,7 @@ The null hypothesis is that there is no relationship between the number of ingre
   height="450"
   frameborder="0"
 ></iframe> 
-Since the p-value (0.1190) is greater than 0.05, we fail to reject the null hypothesis. We do not find sufficient evidence to suggest that the missingness of avg_rating depends on the number of ingredients in a recipe.
+Since the p-value (0.1270) is greater than 0.05, we fail to reject the null hypothesis. We do not find sufficient evidence to suggest that the missingness of avg_rating depends on the number of ingredients in a recipe.
 
 We do not impute missing values in the name, description, or avg_rating columns. We do not fill in missing values for name or description because these fields are not relevant to our prediction task and there is no sensible way to impute them since these columns contain free-form string text. For the avg_rating column, filling in missing values would skew the logic behind our data as the reason these values are null are because they have not yet been rated. Any imputation of ratings would bias the training process as we are falsifying this information.
 
@@ -375,7 +244,7 @@ This is a good choice because our research question is specifically about whethe
   height="450"
   frameborder="0"
 ></iframe> 
-I used a significance level of 𝛼 = 0.05, which is a very standard threshold in statistical analysis. The observed p-value from the permutation test was 0.0524. Since 𝑝 = 0.0537 > 0.05, we fail to reject the null hypothesis as we do not have enough evidence to find that healthy-fitness-diet recipes are associated with a lower average rating.
+I used a significance level of 𝛼 = 0.05, which is a very standard threshold in statistical analysis. The observed p-value from the permutation test was 0.0517. Since 𝑝 = 0.0517 > 0.05, we fail to reject the null hypothesis as we do not have enough evidence to find that healthy-fitness-diet recipes are associated with a lower average rating.
 
 ## Framing a Prediction Problem
 In this project, my prediction problem is to predict the number of steps (n_steps) in a recipe. This is a regression problem. At prediction time, a recipe platform or user would know nutritional information, calories, cooking time, and ingredient count from metadata, but not the full written steps. Predicting n_steps helps estimate recipe complexity before opening the full details.
@@ -398,12 +267,12 @@ This final pipeline was significantly enhanced through feature engineering, whic
 
 The best parameters were {'regressor__max_depth': 20, 'regressor__min_samples_split': 10, 'regressor__n_estimators': 500}.
 
-This engineered approach led to a performance improvement: the Final Model achieved an R-squared of approximately 0.37 and an RMSE of approximately 5.0610. This is a big improvement over our Baseline Linear Regression model, which achieved an RMSE of approximately 5.7564 and an R² of 0.1828. This shows how the baseline model was not complex enough to capture the underlying structure of the data. There is still much to improve with this model
+This engineered approach led to a performance improvement: the Final Model achieved an R-squared of approximately 0.3684 and an RMSE of approximately 5.0607. This is a big improvement over our Baseline Linear Regression model, which achieved an RMSE of approximately 5.7564 and an R² of 0.1828. This shows how the baseline model was not complex enough to capture the underlying structure of the data. There is still much to improve with this model
 
 ## Fairness Analysis
 The fairness analysis was conducted using a Permutation Test to assess if the RandomForestRegressor model performs differently across distinct user demographics, specifically defined by the recipes' sugar content. Group X (High-Sugar) consisted of recipes with a Percent Daily Value for Sugar (sugar_pdv) ≥ 12.0 (the data median), serving as a proxy for "bakers" or "sugar lovers," while Group Y (Low-Sugar) consisted of recipes with sugar_pdv < 12.0. The chosen evaluation metric was Root Mean Squared Error (RMSE), and the Test Statistic was the difference, High-Sugar Group RMSE − Low-Sugar Group RMSE.
 
-Our Null Hypothesis was that the model is fair, meaning the error difference is zero. The Alternative Hypothesis was that the model is unfair, with a higher error for the High-Sugar group. The test yielded an Observed Test Statistic of 0.3449 (with the High-Sugar Group RMSE = 5.1642 and Low-Sugar Group RMSE = 4.8193). 
+Our Null Hypothesis was that the model is fair, meaning the error difference is zero. The Alternative Hypothesis was that the model is unfair, with a higher error for the High-Sugar group. The test yielded an Observed Test Statistic of 0.3449 (with the High-Sugar Group RMSE = 5.1640 and Low-Sugar Group RMSE = 4.8191). 
 
 <iframe
   src="assets/fairness.html"
@@ -411,4 +280,4 @@ Our Null Hypothesis was that the model is fair, meaning the error difference is 
   height="450"
   frameborder="0"
 ></iframe> 
-Running 1,000 permutations resulted in a P-value of 0.0260. Since this p-value is greater than the significance level (α = 0.05), we reject the Null Hypothesis. There is statistically significant evidence that the model seems to perform significantly worse for the High-Sugar group (Group X) This means both "bakers" and "savory lovers" can't rely on the model equally, showing an unequal user experience since the model shows bias against a specific dietary subpopulation.
+Running 1,000 permutations resulted in a P-value of 0.0240. Since this p-value is greater than the significance level (α = 0.05), we reject the Null Hypothesis. There is statistically significant evidence that the model seems to perform significantly worse for the High-Sugar group (Group X) This means both "bakers" and "savory lovers" can't rely on the model equally, showing an unequal user experience since the model shows bias against a specific dietary subpopulation.
