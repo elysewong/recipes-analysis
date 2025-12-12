@@ -18,3 +18,26 @@ section {
   margin: 370px auto !important;
   margin-top: 0 !important;
 }
+
+.table-container {
+  overflow-x: auto;
+}
+
+td:nth-child(8),   /* steps */
+td:nth-child(9),   /* description */
+td:nth-child(10) { /* ingredients */
+  max-height: 150px;
+  overflow-y: auto;
+  display: block;
+  white-space: normal;
+}
+
+td::-webkit-scrollbar {
+  width: 6px;
+}
+
+td::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+

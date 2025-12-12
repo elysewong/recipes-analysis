@@ -18,7 +18,7 @@ I approached data cleaning as follows:
 6. Using the protein_grams column from the previous step, I created a protein to calorie ratio column, protein_calorie_ratio. This will act as the determining factor for whether a recipe is suitable for a healthy fitness diet. We replace NaN values with 0 for recipes with 0 calories as th is makes the most sense.
 7. I then utilize the protein_calorie_ratio column to create a binary column indicating whether a recipe is suitable for a healthy fitness diet where the threshold is 10% (1 gram of protein for every 10 calories). This will be useful for our hypotheses testing later.
 The resulting dataframe is as follows:
-<div style="overflow-x: auto; max-width: 100%;">
+<div class="table-container">
   <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
